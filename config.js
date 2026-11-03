@@ -5,7 +5,7 @@
    puis augmenter "version" (cela force la mise à jour sur les téléphones).
    ===================================================================== */
 window.GDM_CONFIG = {
-  version: "5.0.0",
+  version: "5.1.0",
   edition: "Édition novembre 2026 (v5)",
   urlApplication: "https://gdm-rennes-app.pages.dev",
 
@@ -14,7 +14,7 @@ window.GDM_CONFIG = {
   telPermanenceInfo: "7 jours sur 7",   // précision affichée sous le numéro
   siteWeb: "https://groupe-defense-mineur.fr",   // site internet du GDM
   siteMembres: "https://groupe-defense-mineur.fr/nos-membres/",   // liste publique des membres
-  siteOrdre: "https://www.ordre-avocats-rennes.fr",   // site de l'Ordre (annuaire des avocats)
+  siteOrdre: "https://www.ordre-avocats-rennes.fr/annuaire",   // site de l'Ordre (annuaire des avocats)
   agendaUrl: "",              // lien vers l'agenda partagé (Outlook, Google Agenda…), facultatif
   /* Application générale d'accès au droit (Ordre) : pour tout ce qui n'est pas propre au GDM */
   appAccesAuDroit: "https://acces-au-droit-barreau-rennes.netlify.app",
@@ -54,7 +54,8 @@ window.GDM_CONFIG = {
   contactGdm: { mail: "gdm.rennes@gmail.com", objet: "[Application GDM]" },
 
   /* Facturation des permanences des groupes de défense (CLAJ) : une facture annuelle par mail, jamais dans l'application */
-  claj: { email: "compta@ordre-avocats-rennes.fr", echeance: "31 janvier" },
+  claj: { email: "compta@ordre-avocats-rennes.fr", echeance: "31 janvier",
+          montants: { jour: 30, mercredi: 155 } }   /* HT, circulaire du Bâtonnier du 02/01/2025 */,
 
   contacts: [
     { libelle: "Groupe de défense des mineurs",       email: "gdm.rennes@gmail.com" },

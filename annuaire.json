@@ -1,7 +1,30 @@
 {
  "maj": "2026-11-03",
- "source": "Coordonnées professionnelles communiquées par les membres pour le site du GDM (groupe-defense-mineur.fr/nos-membres)",
+ "source": "Page publique « Nos membres » du site du GDM (groupe-defense-mineur.fr/nos-membres) et fichier de coordonnées du GDM",
  "membres": [
+  {
+   "prenom": "Marie-Line",
+   "nom": "ASSELIN",
+   "adresse": "",
+   "mail": [],
+   "tel": []
+  },
+  {
+   "prenom": "Isabelle",
+   "nom": "BAGOT",
+   "adresse": "15 rue du Puits Mauger 35000 RENNES",
+   "mail": [],
+   "tel": [
+    "0299304139"
+   ]
+  },
+  {
+   "prenom": "Jehanne",
+   "nom": "BARGINE",
+   "adresse": "",
+   "mail": [],
+   "tel": []
+  },
   {
    "prenom": "Sabrina",
    "nom": "BAUDET",
@@ -14,6 +37,13 @@
    ]
   },
   {
+   "prenom": "Juliette",
+   "nom": "BEIGELMAN",
+   "adresse": "",
+   "mail": [],
+   "tel": []
+  },
+  {
    "prenom": "Marie-Gaëlle",
    "nom": "BERNARD",
    "adresse": "12-14 rue Claude Bernard 35000 RENNES",
@@ -23,6 +53,22 @@
    "tel": [
     "0621081180"
    ]
+  },
+  {
+   "prenom": "Natacha",
+   "nom": "BERNARD",
+   "adresse": "",
+   "mail": [],
+   "tel": []
+  },
+  {
+   "prenom": "Maroussia",
+   "nom": "BILLARD",
+   "adresse": "",
+   "mail": [
+    "billard@scpcabs.com"
+   ],
+   "tel": []
   },
   {
    "prenom": "Marie",
@@ -59,6 +105,13 @@
    ]
   },
   {
+   "prenom": "Philippe",
+   "nom": "BREUIL",
+   "adresse": "",
+   "mail": [],
+   "tel": []
+  },
+  {
    "prenom": "Delphine",
    "nom": "CARO",
    "adresse": "1 place Maréchal Juin 35000 RENNES",
@@ -83,7 +136,7 @@
   },
   {
    "prenom": "Sylvie",
-   "nom": "CAVALOC LE GAL",
+   "nom": "CAVALOC-LE GAL",
    "adresse": "ZA Le Chêne Joli, 28 Avenue du Chêne Joli, 35530 NOYAL SUR VILAINE",
    "mail": [
     "sylviecavaloclegal@gmail.com"
@@ -91,6 +144,20 @@
    "tel": [
     "0683564132"
    ]
+  },
+  {
+   "prenom": "Marie",
+   "nom": "CAZIN",
+   "adresse": "",
+   "mail": [],
+   "tel": []
+  },
+  {
+   "prenom": "Olivier",
+   "nom": "CHAUVEL",
+   "adresse": "",
+   "mail": [],
+   "tel": []
   },
   {
    "prenom": "Clémence",
@@ -171,6 +238,13 @@
    ]
   },
   {
+   "prenom": "Carole",
+   "nom": "DUCART-MEVEL",
+   "adresse": "",
+   "mail": [],
+   "tel": []
+  },
+  {
    "prenom": "Nathalie",
    "nom": "DUPAS",
    "adresse": "12 quai Duguay Trouin, 35000 RENNES",
@@ -193,6 +267,20 @@
    ]
   },
   {
+   "prenom": "Marine",
+   "nom": "EGON",
+   "adresse": "",
+   "mail": [],
+   "tel": []
+  },
+  {
+   "prenom": "Constance",
+   "nom": "FLECK",
+   "adresse": "",
+   "mail": [],
+   "tel": []
+  },
+  {
    "prenom": "Marion",
    "nom": "GAREL",
    "adresse": "29 rue du Puits MAUGER 35000 RENNES",
@@ -204,15 +292,18 @@
    ]
   },
   {
-   "prenom": "Laury",
-   "nom": "GOLFIER",
-   "adresse": "53 Rue Jules Vallès, 35000 RENNES",
-   "mail": [
-    "contact@golfier-avocat.fr"
-   ],
-   "tel": [
-    "0749942525"
-   ]
+   "prenom": "Charles Alexis",
+   "nom": "GARO",
+   "adresse": "",
+   "mail": [],
+   "tel": []
+  },
+  {
+   "prenom": "Marine",
+   "nom": "GRAVIS",
+   "adresse": "",
+   "mail": [],
+   "tel": []
   },
   {
    "prenom": "Benoît",
@@ -290,6 +381,13 @@
    ]
   },
   {
+   "prenom": "Marie",
+   "nom": "KERVENNIC",
+   "adresse": "",
+   "mail": [],
+   "tel": []
+  },
+  {
    "prenom": "Aurélie",
    "nom": "KIBGE",
    "adresse": "126 Rue de Lorient 35000 RENNES",
@@ -301,6 +399,13 @@
    ]
   },
   {
+   "prenom": "Julie",
+   "nom": "KNOSP",
+   "adresse": "",
+   "mail": [],
+   "tel": []
+  },
+  {
    "prenom": "Xavier",
    "nom": "LADROIT",
    "adresse": "31 Rue Maréchal Joffre 35000 RENNES",
@@ -309,6 +414,17 @@
    ],
    "tel": [
     "0756847375"
+   ]
+  },
+  {
+   "prenom": "Naïma",
+   "nom": "LAOUFI",
+   "adresse": "",
+   "mail": [
+    "laoufi.naima-avocat@outlook.fr"
+   ],
+   "tel": [
+    "0765763470"
    ]
   },
   {
@@ -356,6 +472,13 @@
    ]
   },
   {
+   "prenom": "Manon",
+   "nom": "LE ROUX",
+   "adresse": "",
+   "mail": [],
+   "tel": []
+  },
+  {
    "prenom": "Solenn",
    "nom": "LEMOINE",
    "adresse": "1 Place Maréchal Juin 35000 RENNES",
@@ -365,6 +488,13 @@
    "tel": [
     "0625370038"
    ]
+  },
+  {
+   "prenom": "Ludivine",
+   "nom": "LEROI",
+   "adresse": "",
+   "mail": [],
+   "tel": []
   },
   {
    "prenom": "Lucie",
@@ -389,7 +519,7 @@
    ]
   },
   {
-   "prenom": "Mélissa",
+   "prenom": "Melissa",
    "nom": "MARIAU",
    "adresse": "2 rue de Rohan 35000 RENNES",
    "mail": [
@@ -397,6 +527,24 @@
    ],
    "tel": [
     "0767136568"
+   ]
+  },
+  {
+   "prenom": "Sandrine",
+   "nom": "MARTIN",
+   "adresse": "",
+   "mail": [],
+   "tel": []
+  },
+  {
+   "prenom": "Benjamin",
+   "nom": "MAYZAUD",
+   "adresse": "",
+   "mail": [
+    "benjamin.mayzaud@pluriel-avocat.com"
+   ],
+   "tel": [
+    "0764076609"
    ]
   },
   {
@@ -411,6 +559,13 @@
    ]
   },
   {
+   "prenom": "Stéphanie",
+   "nom": "MORIN-BONNIN",
+   "adresse": "",
+   "mail": [],
+   "tel": []
+  },
+  {
    "prenom": "Elodie",
    "nom": "MORON",
    "adresse": "2 rue Martenot, 35000 RENNES",
@@ -420,6 +575,13 @@
    "tel": [
     "0603810179"
    ]
+  },
+  {
+   "prenom": "Franziska",
+   "nom": "MOSIMANN",
+   "adresse": "",
+   "mail": [],
+   "tel": []
   },
   {
    "prenom": "Iris",
@@ -433,7 +595,21 @@
    ]
   },
   {
-   "prenom": "Marie",
+   "prenom": "Samuel",
+   "nom": "MOULIN",
+   "adresse": "",
+   "mail": [],
+   "tel": []
+  },
+  {
+   "prenom": "Amélie",
+   "nom": "PAILLE NICOLAS",
+   "adresse": "",
+   "mail": [],
+   "tel": []
+  },
+  {
+   "prenom": "Marie-Aude",
    "nom": "PAULET-PRIGENT",
    "adresse": "9 Square du Général Koenig, 35000 RENNES",
    "mail": [
@@ -499,6 +675,13 @@
    ]
   },
   {
+   "prenom": "Anne-Marie",
+   "nom": "QUESNEL",
+   "adresse": "",
+   "mail": [],
+   "tel": []
+  },
+  {
    "prenom": "Pierre",
    "nom": "RODIUS",
    "adresse": "2 rue Jules Simon 35000 RENNES",
@@ -511,7 +694,7 @@
   },
   {
    "prenom": "Véronique",
-   "nom": "SAUTEJEAU DENIS",
+   "nom": "SAUTEJEAU-DENIS",
    "adresse": "1 place du Maréchal Juin 35000 RENNES",
    "mail": [
     "sautejeaudenis.avocat@hotmail.com"
@@ -530,6 +713,26 @@
    "tel": [
     "0638584070"
    ]
+  },
+  {
+   "prenom": "Thomas",
+   "nom": "SERRAND",
+   "adresse": "8 rue du Sapeur Michel Jouan 35000 RENNES",
+   "mail": [
+    "serrand@cabinet-acdc.fr"
+   ],
+   "tel": [
+    "0299638933"
+   ]
+  },
+  {
+   "prenom": "Inès",
+   "nom": "TARDY-JOUBERT",
+   "adresse": "",
+   "mail": [
+    "i.tardy-joubert@rennes-avocat.fr"
+   ],
+   "tel": []
   },
   {
    "prenom": "Alexandra",

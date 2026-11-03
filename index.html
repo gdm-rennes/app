@@ -138,6 +138,7 @@ details .in{padding:0 14px 8px}
 .annu .ad{font-size:.9rem;color:var(--gris);margin:2px 0 8px}
 .annu .ac{display:flex;flex-wrap:wrap;gap:8px}
 .annu .ac a{min-height:44px;padding:0 14px;font-size:.92rem}
+input[type=number],textarea{width:100%;min-height:50px;padding:10px 14px;border:2px solid var(--ligne);border-radius:12px;background:#fff;color:var(--encre);font:inherit}
 input[type=date]{width:100%;min-height:50px;padding:0 14px;border:2px solid var(--ligne);border-radius:12px;background:#fff;color:var(--encre);font:inherit}
 @media print{.nav,.top{display:none}}
 </style>
@@ -251,7 +252,7 @@ vues.fiches=function(arg){
   return '<div class="wrap"><h1>Fiches d’analyse</h1><p>Deux fiches sont propres au Groupe de défense des mineurs. Elles ne servent <b>que</b> pour les cas relevant du GDM.</p><div class="choix">'+
   '<button data-go="#/fiches/mercredi"><span><b>Permanence du mercredi après-midi</b><br><span class="petit">Consultations gratuites mineurs, Cité judiciaire</span></span><span aria-hidden="true">›</span></button>'+
   '<button data-go="#/fiches/telephone"><span><b>Permanence téléphonique</b><br><span class="petit">Une fiche par jour de sollicitations</span></span><span aria-hidden="true">›</span></button></div>'+
-  '<section class="card" style="margin-top:18px"><h2>Autres cas</h2><p>Permanences pénales, gardes à vue, auditions libres, D-Code, <b>factures des permanences CDAD</b> autres que scolaires et incidents sur un lieu de permanence se déclarent dans l’<b>application générale d’accès au droit</b> du barreau.</p>'+
+  '<section class="card" style="margin-top:18px"><h2>Autres cas</h2><p>D-Code, <b>factures des permanences CDAD</b> autres que scolaires et incidents sur un lieu de permanence se déclarent dans l’<b>application générale d’accès au droit</b> du barreau.</p>'+
   '<a class="btn block" href="'+esc(C.appAccesAuDroit)+'" target="_blank" rel="noopener noreferrer">Ouvrir l’application accès au droit</a></section>'+
   '<section class="card"><h2>Facturation</h2><p>Permanences du GDM (CLAJ) et interventions en milieu scolaire (CDAD) : voir l’onglet <a href="#/facturer"><b>Facturer</b></a>.</p></section>'+
   '<div class="note"><b>Toutes les permanences donnent lieu à une fiche d’analyse.</b> Aucun nom, aucune date de naissance, aucun établissement : uniquement des cases à cocher.</div></div>';
@@ -288,7 +289,7 @@ function chargerRes(){
     RES.categories.forEach(function(c){
       var e=c.entrees.filter(function(x){return !q||(x.titre+" "+x.desc).toLowerCase().indexOf(q)>-1});
       if(!e.length) return;
-      h+='<details'+(q?' open':'')+'><summary>'+esc(c.titre)+' ('+e.length+')</summary><div class="in">'+e.map(function(x){return '<div class="res">'+(x.url?'<a href="'+esc(x.url)+'"'+(x.url.charAt(0)==="#"?'':' target="_blank" rel="noopener noreferrer"')+'>'+esc(x.titre)+'</a>':'<b>'+esc(x.titre)+'</b> <span class="badge">lien à venir</span>')+(x.acces==="membres"?' <span class="badge">membres</span>':'')+'<small>'+esc(x.desc)+'</small></div>'}).join("")+'</div></details>';
+      h+='<details'+(q?' open':'')+'><summary>'+esc(c.titre)+' ('+e.length+')</summary><div class="in">'+e.map(function(x){return '<div class="res">'+(x.url?'<a href="'+esc(x.url)+'"'+(/^(#|mailto:)/.test(x.url)?'':' target="_blank" rel="noopener noreferrer"')+'>'+esc(x.titre)+'</a>':'<b>'+esc(x.titre)+'</b> <span class="badge">lien à venir</span>')+(x.acces==="membres"?' <span class="badge">membres</span>':'')+'<small>'+esc(x.desc)+'</small></div>'}).join("")+'</div></details>';
     });
     box.innerHTML=h||'<p>Aucun résultat.</p>';
   }
@@ -310,8 +311,9 @@ vues.aide=function(){
   '<p class="petit">'+esc(C.edition)+' · version '+esc(C.version)+'</p></div>';
 };
 
+function eur(n){return Number(n).toLocaleString("fr-FR",{minimumFractionDigits:0,maximumFractionDigits:2}).replace(/\u202f|\u00a0/g," ")+" €"}
 function aujourdhuiISO(){var d=new Date();return d.getFullYear()+"-"+("0"+(d.getMonth()+1)).slice(-2)+"-"+("0"+d.getDate()).slice(-2)}
-function urlScolaire(iso,tva){
+function urlScolaire(iso,tva,bin){
   var sc=C.scolaire,p=profil(),q=[];
   function add(k,v){q.push(encodeURIComponent(k).replace(/%5B/g,"[").replace(/%5D/g,"]")+"="+encodeURIComponent(v==null?"":v))}
   var m=iso.split("-"), fr=m[2]+"/"+m[1]+"/"+m[0];
@@ -319,18 +321,16 @@ function urlScolaire(iso,tva){
   add("ligneId","GDM-S-"+m[0]+m[1]+m[2]+"-"+Math.random().toString(36).slice(2,6).toUpperCase());
   add("permanenceId",sc.permanenceId); add("permanenceLibelle",sc.libelle); add("typePermanence","scolaire");
   add("datePermanence",fr); add("heureDebut",""); add("dureeH",sc.dureeH); add("assujettiTva",tva);
-  add("regimePermanence","CDAD"); add("montantTtc",sc.ttc); add("origine","Application GDM");
+  add("regimePermanence","CDAD"); add("montantTtc",bin?"108.00":sc.ttc); add("origine",bin?"Application GDM (binôme)":"Application GDM");
   return sc.form+"?"+q.join("&");
 }
 vues.facturer=function(){
-  var c=C.claj||{}, an=new Date().getFullYear();
-  var sujet=encodeURIComponent("Facture annuelle CLAJ – Groupe de défense des mineurs – "+an);
-  var corps=encodeURIComponent("Madame, Monsieur,\n\nVeuillez trouver ci-joint ma facture annuelle des permanences du Groupe de défense des mineurs relevant de la CLAJ pour l’année "+an+" (intitulés, dates et montants).\n\nBien cordialement,\n"+((profil().prenom||"")+" "+(profil().nom||"")).trim());
+  var c=C.claj||{}, M=(c.montants||{jour:30,mercredi:155}), an=new Date().getFullYear();
   return '<div class="wrap"><h1 style="color:var(--bleu)">Facturer</h1>'+
   '<p>Deux circuits à ne pas confondre. Au moindre doute sur la nature d’une permanence, consultez le vademecum des permanences (CLIPA) ou le service des permanences de l’Ordre.</p>'+
   '<div class="fx">'+
   '<section class="fcol claj" aria-labelledby="fc1"><h3 id="fc1">Permanences de semaine et de week-end, consultations du mercredi<small>Groupe de défense (CLAJ) · convention locale d’aide juridictionnelle</small></h3><ol>'+
-  '<li><div><b>Je tiens la permanence</b><span>Garde à vue, audition libre, audiences, consultations du mercredi.</span></div></li>'+
+  '<li><div><b>Je tiens la permanence</b><span>Permanence de semaine ou de week-end, consultation du mercredi après-midi.</span></div></li>'+
   '<li><div><b>Pas de fiche CDAD</b><span>L’Ordre dispose du planning. La fiche d’analyse du GDM (onglet Fiches) reste à remplir.</span></div></li>'+
   '<li><div><b>Une seule facture annuelle</b><span>Récapitulatif de toutes vos permanences CLAJ de l’année (intitulés, dates, montants). Aucun justificatif à joindre.</span></div></li>'+
   '<li class="cle"><div><b>Je l’envoie avant le '+esc(c.echeance||"31 janvier")+'</b><span>Uniquement par mail à '+esc(c.email||"")+'. Hors délai : facture non réglée.</span></div></li>'+
@@ -338,21 +338,28 @@ vues.facturer=function(){
   '<section class="fcol cdad" aria-labelledby="fc2"><h3 id="fc2">Interventions en milieu scolaire<small>Accès au droit · payées par le CDAD 35</small></h3><ol>'+
   '<li><div><b>Je fais l’intervention</b><span>Collège, lycée : une intervention de 2 h.</span></div></li>'+
   '<li><div><b>Je remplis la fiche d’analyse</b><span>Une fiche par intervention : sans fiche, pas de paiement.</span></div></li>'+
-  '<li><div><b>J’établis ma facture</b><span>216 € TTC par intervention, une seule facture même si vous intervenez à deux. Libellée à la CARPA Ouest Atlantique Bretagne, 11 rue Saint-Louis, 35000 Rennes.</span></div></li>'+
+  '<li><div><b>J’établis ma facture</b><span>216 € TTC par intervention ; en binôme, chacun facture 108 € TTC. Libellée à la CARPA Ouest Atlantique Bretagne, 11 rue Saint-Louis, 35000 Rennes.</span></div></li>'+
   '<li class="cle"><div><b>Je l’envoie dans les 3 mois</b><span>Fiche et facture déposées ensemble ; au plus tard le 31 janvier de l’année suivante, au-delà aucun paiement.</span></div></li>'+
   '<li><div><b>L’Ordre contrôle, paie et refacture</b><span>Contrôle du planning et des plafonds, paiement par la CARPA, refacturation au CDAD tous les deux mois.</span></div></li></ol></section></div>'+
   '<section class="card"><h2>Intervention en milieu scolaire : déclarer et facturer</h2>'+
   '<p class="petit" style="margin:0 0 6px">La fiche et la facture se déposent dans le même formulaire que l’application accès au droit : elles alimentent le même tableau que les permanences CDAD. Aucun nom d’élève ni d’enseignant.</p>'+
   '<label for="sDate">Date de l’intervention</label><input type="date" id="sDate" value="'+aujourdhuiISO()+'" max="'+aujourdhuiISO()+'">'+
+  '<label>Intervention réalisée</label><div class="chips" id="sBin"><button class="chip" data-v="seul" aria-pressed="true">Seul(e)</button><button class="chip" data-v="binome" aria-pressed="false">En binôme</button></div>'+
+  '<p class="petit">Une seule indemnisation est prévue par intervention : 216 € TTC. En binôme, <b>chacun facture la moitié, soit 108 € TTC</b>.</p>'+
   '<label>Êtes-vous assujetti à la TVA ?</label><div class="chips" id="sTva"><button class="chip" data-v="Oui" aria-pressed="false">Oui</button><button class="chip" data-v="Non" aria-pressed="false">Non</button></div>'+
-  '<p class="petit">Non assujetti : facturez le même montant avec la mention « TVA non applicable, art. 293 B du CGI ».</p>'+
+  '<div class="note"><b>TVA.</b> Les montants du barème CDAD s’entendent <b>TTC</b>. Si vous êtes assujetti à la TVA, le montant TTC s’entend TVA comprise : votre facture fait apparaître le montant HT, le taux et le montant de la TVA (CGI, annexe II, art. 242 nonies A). Si vous n’êtes pas assujetti, facturez le même montant avec la mention « TVA non applicable, art. 293 B du CGI ».</div>'+
   (aProfil()?'':'<div class="note attention"><b>Astuce :</b> enregistrez d’abord votre <a href="#/profil">profil</a> pour préremplir le formulaire.</div>')+
   '<a class="btn block" id="sGo" href="#/facturer" target="_blank" rel="noopener noreferrer">Ouvrir la fiche et déposer ma facture ↗</a><p id="sMsg" class="petit" role="status"></p>'+
   '<p class="petit">Le formulaire s’ouvre dans un nouvel onglet (charte de l’Ordre). À la fin, notez votre numéro de dépôt. Pour revenir ici, fermez l’onglet.</p></section>'+
-  '<section class="card"><h2>Facture annuelle CLAJ</h2><p class="petit" style="margin:0 0 8px">Un modèle de message s’ouvre dans votre messagerie : joignez votre facture (PDF).</p>'+
-  '<a class="btn block" href="mailto:'+esc(c.email||"")+'?subject='+sujet+'&body='+corps+'">Écrire à la comptabilité de l’Ordre</a>'+
-  '<p class="petit" style="margin:8px 0 0">Exception : l’audition libre d’un mineur relève de l’aide juridictionnelle.</p></section>'+
-  '<div class="note"><b>À retenir.</b> Les permanences CDAD se facturent dans les 3 mois ; les permanences CLAJ une fois par an, avant le '+esc(c.echeance||"31 janvier")+'. Intervention scolaire : 10 prises en charge par le CDAD, les suivantes par le GDM, au même tarif.</div></div>';
+  '<section class="card"><h2>Montants CLAJ du GDM</h2><ul class="liste"><li><span><b>Permanence de semaine ou de week-end</b><br><span class="petit">par jour de permanence</span></span><b>'+eur(M.jour)+' HT</b></li><li><span><b>Consultation du mercredi après-midi</b><br><span class="petit">par consultation</span></span><b>'+eur(M.mercredi)+' HT</b></li></ul>'+
+  '<p class="petit" style="margin:8px 0 0">Montants dus qu’il y ait eu ou non intervention (circulaire du Bâtonnier du 02/01/2025). TVA : si vous êtes assujetti, ajoutez-la à votre facture ; sinon, mention « TVA non applicable, art. 293 B du CGI ».</p></section>'+
+  '<section class="card"><h2>Mon récapitulatif CLAJ</h2><p class="petit" style="margin:0 0 6px">Calculez le total de votre facture annuelle. Rien n’est enregistré ni envoyé : vous le reprenez dans votre mail.</p>'+
+  '<label for="cJ">Jours de permanence (semaine ou week-end)</label><input type="number" id="cJ" min="0" inputmode="numeric" value="0">'+
+  '<label for="cM">Consultations du mercredi</label><input type="number" id="cM" min="0" inputmode="numeric" value="0">'+
+  '<label for="cD">Dates (facultatif, pour le récapitulatif)</label><textarea id="cD" rows="3" placeholder="Ex. 07/01, 14/01 (mercredi), 22/02…"></textarea>'+
+  '<p id="cT" style="font-weight:800;font-size:1.1rem;margin:10px 0 0">Total : 0,00 € HT</p>'+
+  '<a class="btn block" id="cMail" style="margin-top:10px" href="#/facturer">Préparer le mail à la comptabilité de l’Ordre</a><p class="petit" style="margin:8px 0 0">Joignez votre facture (PDF), sans justificatif. Hors délai (après le '+esc(c.echeance||"31 janvier")+') : facture non réglée.</p></section>'+
+  '<div class="note"><b>À retenir.</b> Les permanences CDAD se facturent dans les 3 mois ; les permanences CLAJ une fois par an, avant le '+esc(c.echeance||"31 janvier")+'. Intervention scolaire : une seule indemnisation par intervention (216 € TTC, soit 108 € TTC chacun en binôme) ; 10 prises en charge par le CDAD, les suivantes par le GDM, au même tarif.</div></div>';
 };
 var ANN=null;
 vues.annuaire=function(){
@@ -360,7 +367,7 @@ vues.annuaire=function(){
   var site=C.siteMembres?'<a class="btn sec block" href="'+esc(C.siteMembres)+'" target="_blank" rel="noopener noreferrer">Liste complète sur le site du GDM ↗</a>':'';
   var ordre=C.siteOrdre?'<a class="btn sec block" style="margin-top:8px" href="'+esc(C.siteOrdre)+'" target="_blank" rel="noopener noreferrer">Site de l’Ordre des avocats de Rennes ↗</a>':'';
   return '<div class="wrap"><h1 style="color:var(--teal-f)">Annuaire du groupe</h1>'+
-  '<p>Coordonnées professionnelles des membres, déjà publiques sur le site du GDM. Touchez un numéro pour appeler, une adresse pour écrire.</p>'+
+  '<p>Les membres du GDM, d’après les coordonnées publiques du site du GDM et de l’annuaire de l’Ordre. Touchez un numéro pour appeler, une adresse pour écrire.</p>'+
   '<label for="aq">Rechercher</label><input id="aq" type="search" placeholder="Nom, prénom ou ville" autocomplete="off">'+
   '<div id="ann" style="margin:12px 0"><p class="petit">Chargement…</p></div>'+
   '<section class="card"><h2>Autres annuaires</h2>'+site+ordre+'</section>'+
@@ -373,9 +380,10 @@ function chargerAnnuaire(){
     var q=((document.getElementById("aq")||{}).value||"").toLowerCase().trim();
     var l=ANN.membres.filter(function(m){return !q||(m.prenom+" "+m.nom+" "+(m.adresse||"")+" "+(m.cabinet||"")).toLowerCase().indexOf(q)>-1});
     box.innerHTML=(l.length?l.map(function(m){
+      var sans=!(m.tel&&m.tel.length)&&!(m.mail&&m.mail.length);
       var tels=(m.tel||[]).map(function(t){return '<a class="btn" href="tel:+33'+esc(t.slice(1))+'">'+esc(fmtTel(t))+'</a>'}).join("");
       var mails=(m.mail||[]).slice(0,1).map(function(e){return '<a class="btn sec" href="mailto:'+esc(e)+'">Écrire</a>'}).join("");
-      return '<div class="annu"><div class="nm">Me '+esc(m.prenom)+' '+esc(m.nom)+'</div><div class="ad">'+(m.cabinet?esc(m.cabinet)+' · ':'')+esc(m.adresse||"")+'</div><div class="ac">'+tels+mails+'</div></div>'}).join(""):'<p>Aucun résultat.</p>')+
+      return '<div class="annu"><div class="nm">Me '+esc(m.prenom)+' '+esc(m.nom)+'</div><div class="ad">'+(m.cabinet?esc(m.cabinet)+' · ':'')+esc(m.adresse||"")+'</div><div class="ac">'+(sans?'<a class="btn sec" href="'+esc(C.siteOrdre||"#")+'" target="_blank" rel="noopener noreferrer">Coordonnées : annuaire de l’Ordre ↗</a>':tels+mails)+'</div></div>'}).join(""):'<p>Aucun résultat.</p>')+
       '<p class="petit">'+l.length+' membre'+(l.length>1?'s':'')+' affiché'+(l.length>1?'s':'')+' · liste du '+esc(new Date(ANN.maj).toLocaleDateString("fr-FR"))+'</p>';
   }
   function init(){aff();var q=document.getElementById("aq");if(q)q.addEventListener("input",aff)}
@@ -437,11 +445,20 @@ function liens(nom){
   V.querySelectorAll("button[data-type]").forEach(function(b){b.addEventListener("click",function(){})});
   if(nom==="fiches"){var ch=document.getElementById("dates"); if(ch){sessionStorageSet("gdm.date","0");ch.querySelectorAll(".chip").forEach(function(c){c.addEventListener("click",function(){ch.querySelectorAll(".chip").forEach(function(x){x.setAttribute("aria-pressed","false")});c.setAttribute("aria-pressed","true");sessionStorageSet("gdm.date",c.getAttribute("data-d"))})})}}
   if(nom==="facturer"){
-    var tv="",go=document.getElementById("sGo"),ch2=document.getElementById("sTva"),dt=document.getElementById("sDate"),ms=document.getElementById("sMsg");
+    var tv="",bn=false,go=document.getElementById("sGo"),ch2=document.getElementById("sTva"),dt=document.getElementById("sDate"),ms=document.getElementById("sMsg");
     ch2.querySelectorAll(".chip").forEach(function(c){c.addEventListener("click",function(){ch2.querySelectorAll(".chip").forEach(function(x){x.setAttribute("aria-pressed","false")});c.setAttribute("aria-pressed","true");tv=c.getAttribute("data-v");ms.textContent=""})});
+    var cJ=document.getElementById("cJ"),cM=document.getElementById("cM"),cD=document.getElementById("cD"),cT=document.getElementById("cT"),cMail=document.getElementById("cMail");
+    function majClaj(){var M=(C.claj||{}).montants||{jour:30,mercredi:155},j=Math.max(0,parseInt(cJ.value||"0",10)||0),m=Math.max(0,parseInt(cM.value||"0",10)||0),t=j*M.jour+m*M.mercredi;
+      cT.textContent="Total : "+eur(t).replace(/(\d)(?=(\d{3})+(,|\s€))/g,"$1")+" HT";
+      var pr=profil(),an=new Date().getFullYear();
+      var sujet="Facture annuelle CLAJ – Groupe de défense des mineurs – "+an;
+      var corps="Madame, Monsieur,\n\nVeuillez trouver ci-joint ma facture annuelle des permanences du Groupe de défense des mineurs relevant de la CLAJ pour l’année "+an+" :\n- "+j+" jour(s) de permanence × "+eur(M.jour)+" HT\n- "+m+" consultation(s) du mercredi × "+eur(M.mercredi)+" HT\nTotal : "+eur(t)+" HT\n"+(cD.value.trim()?"\nDates : "+cD.value.trim()+"\n":"")+"\nBien cordialement,\n"+((pr.prenom||"")+" "+(pr.nom||"")).trim();
+      cMail.setAttribute("href","mailto:"+((C.claj||{}).email||"")+"?subject="+encodeURIComponent(sujet)+"&body="+encodeURIComponent(corps));cMail.removeAttribute("target")}
+    [cJ,cM,cD].forEach(function(e){e.addEventListener("input",majClaj)});majClaj();
+    var cb=document.getElementById("sBin");cb.querySelectorAll(".chip").forEach(function(c){c.addEventListener("click",function(){cb.querySelectorAll(".chip").forEach(function(x){x.setAttribute("aria-pressed","false")});c.setAttribute("aria-pressed","true");bn=c.getAttribute("data-v")==="binome"})});
     go.addEventListener("click",function(e){
       if(!dt.value||!tv){e.preventDefault();ms.textContent="Indiquez la date et votre régime de TVA.";return}
-      go.setAttribute("href",urlScolaire(dt.value,tv));
+      go.setAttribute("href",urlScolaire(dt.value,tv,bn));
     });
   }
   if(nom==="profil"){

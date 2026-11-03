@@ -15,6 +15,35 @@
    ]
   },
   {
+   "titre": "Interventions en milieu scolaire (CDAD 35)",
+   "entrees": [
+    {
+     "titre": "Offre du CDAD 35 aux établissements scolaires (partenariat Justice – Écoles)",
+     "desc": "Interventions d’avocats volontaires dans le second degré, accueil aux audiences, Justiscène : document annuel et dossier de demande à obtenir auprès du CDAD 35 (cdad-ille-et-vilaine@justice.fr). Lien direct vers l’édition en cours à ajouter.",
+     "url": "mailto:cdad-ille-et-vilaine@justice.fr?subject=Offre%20aux%20%C3%A9tablissements%20scolaires",
+     "acces": "public"
+    },
+    {
+     "titre": "CDAD Rennes : accès au droit des jeunes et citoyenneté",
+     "desc": "Guides pour les jeunes, passeport pour la majorité, liens utiles.",
+     "url": "https://www.cdad-ca-rennes.fr/fiches-pratiques-demarches/acces-au-droit-des-jeunes-citoyennete/",
+     "acces": "public"
+    },
+    {
+     "titre": "Kit pédagogique « Place des droits » (CDAD 35)",
+     "desc": "Ressources pédagogiques et mises en situation (consentement, vie privée, cyberharcèlement, justice pénale des mineurs).",
+     "url": "https://www.cdad-ca-rennes.fr/wp-content/uploads/2021/05/kit-pedagogique-version-finale-compresse.pdf",
+     "acces": "public"
+    },
+    {
+     "titre": "Dossier pédagogique du CDAD 35 (accueil aux audiences)",
+     "desc": "Organisation des juridictions, déroulement d’une audience correctionnelle, lexique.",
+     "url": "https://www.cdad-ca-rennes.fr/wp-content/uploads/2024/06/dossier-pour-groupes-2023.pdf",
+     "acces": "public"
+    }
+   ]
+  },
+  {
    "id": "cnb",
    "titre": "Guides du CNB",
    "entrees": [
