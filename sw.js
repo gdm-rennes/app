@@ -1,5 +1,5 @@
 // Service worker minimal : ouverture hors connexion de la coque de l'application. Aucune donnée envoyée.
-const CACHE = "gdm-v5.1.0";
+const CACHE = "gdm-v5.2.0";
 const FICHIERS = ["./","./index.html","./config.js","./ressources.json","./annuaire.json","./agenda.json","./manifest.webmanifest","./icon-192.png","./icon-512.png","./icon-180.png","./favicon.png",
  "./fonts/nunito-latin-400-normal.woff2","./fonts/nunito-latin-600-normal.woff2","./fonts/nunito-latin-700-normal.woff2","./fonts/nunito-latin-800-normal.woff2",
  "./img/cartable.png","./img/balance.png","./img/avocats.png","./img/parole.png","./img/mains.png","./img/groupe.png","./img/logo-horizontal.png"];

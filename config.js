@@ -5,7 +5,7 @@
    puis augmenter "version" (cela force la mise à jour sur les téléphones).
    ===================================================================== */
 window.GDM_CONFIG = {
-  version: "5.1.0",
+  version: "5.2.0",
   edition: "Édition novembre 2026 (v5)",
   urlApplication: "https://gdm-rennes-app.pages.dev",
 

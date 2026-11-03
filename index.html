@@ -321,7 +321,7 @@ function urlScolaire(iso,tva,bin){
   add("ligneId","GDM-S-"+m[0]+m[1]+m[2]+"-"+Math.random().toString(36).slice(2,6).toUpperCase());
   add("permanenceId",sc.permanenceId); add("permanenceLibelle",sc.libelle); add("typePermanence","scolaire");
   add("datePermanence",fr); add("heureDebut",""); add("dureeH",sc.dureeH); add("assujettiTva",tva);
-  add("regimePermanence","CDAD"); add("montantTtc",bin?"108.00":sc.ttc); add("origine",bin?"Application GDM (binôme)":"Application GDM");
+  add("regimePermanence","CDAD"); add("montantTtc",bin?"108.00":sc.ttc); add("origine",bin?"Intervention en binôme":"Application GDM");
   return sc.form+"?"+q.join("&");
 }
 vues.facturer=function(){
