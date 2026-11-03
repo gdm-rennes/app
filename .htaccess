@@ -1,0 +1,31 @@
+# GDM Permanences – sécurité de l'hébergement (OVH, Apache)
+# 1. HTTPS obligatoire
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# 2. Types de fichiers
+AddType application/manifest+json .webmanifest
+AddType application/json .json
+AddType font/woff2 .woff2
+
+# 3. En-têtes de sécurité (CSP stricte : rien de chargé hors du site ; liens sortants autorisés vers Jotform)
+<IfModule mod_headers.c>
+  Header always set Content-Security-Policy "default-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; manifest-src 'self'; worker-src 'self'; frame-src https://form.jotform.com https://eu.jotform.com; form-action 'none'; base-uri 'none'; frame-ancestors 'none'"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "no-referrer"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+  Header always set Strict-Transport-Security "max-age=31536000"
+  Header always set X-Frame-Options "DENY"
+</IfModule>
+
+# 4. Pas de listage des dossiers
+Options -Indexes
+
+# 5. OPTION – accès protégé par identifiant partagé (à activer pour les ressources « membres »)
+#    Créer d'abord le fichier .htpasswd (outil « Protection par mot de passe » du manager OVH),
+#    puis retirer les # des 4 lignes ci-dessous et corriger le chemin AuthUserFile.
+# AuthType Basic
+# AuthName "GDM – espace réservé aux membres"
+# AuthUserFile /home/IDENTIFIANT/www/app/.htpasswd
+# Require valid-user
