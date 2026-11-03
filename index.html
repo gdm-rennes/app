@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>GDM Permanences</title>
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="description" content="Déclarer, facturer, signaler — Groupe de défense des mineurs du barreau de Rennes">
+<meta name="theme-color" content="#2F7A80">
+<meta name="referrer" content="no-referrer">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="favicon.png">
+<link rel="apple-touch-icon" href="icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="GDM">
+<style>
+@font-face{font-family:Nunito;font-weight:400;font-display:swap;src:url(fonts/nunito-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:Nunito;font-weight:600;font-display:swap;src:url(fonts/nunito-latin-600-normal.woff2) format("woff2")}
+@font-face{font-family:Nunito;font-weight:700;font-display:swap;src:url(fonts/nunito-latin-700-normal.woff2) format("woff2")}
+@font-face{font-family:Nunito;font-weight:800;font-display:swap;src:url(fonts/nunito-latin-800-normal.woff2) format("woff2")}
+:root{
+  /* Couleurs du logotype GDM */
+  --teal:#479A9F;--jaune:#DDCB5F;--peche:#FBC98E;--rose:#E9465B;--bleu:#0F558F;--cyan:#29B8CE;
+  /* Variantes foncées : texte et boutons (contraste AA sur blanc) */
+  --teal-f:#2F7A80;--rose-f:#C8304A;--cyan-f:#0E7F92;--jaune-f:#6B5C00;--peche-f:#8A4B00;
+  --encre:#16232B;--ardoise:#2C455A;--gris:#4B5B67;--ligne:#C9D6D6;--fond:#F5F8F8;--creme:#FDF3E3;
+  --nav-h:64px;--top-h:64px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font:400 17px/1.5 Nunito,system-ui,"Segoe UI",Roboto,Arial,sans-serif;color:var(--encre);background:var(--fond);padding-bottom:calc(var(--nav-h) + env(safe-area-inset-bottom))}
+h1,h2,h3{line-height:1.2;margin:0 0 .5em;color:var(--bleu);font-weight:800}
+h1{font-size:1.6rem}h2{font-size:1.25rem}h3{font-size:1.05rem;color:var(--ardoise)}
+p{margin:0 0 .8em}
+.wrap p,.wrap .note,.regles li,.steps li div,.card li{text-align:justify;hyphens:auto;-webkit-hyphens:auto}
+.wrap .petit,.wrap .choix p,.liste li,.telcard *{text-align:left;hyphens:manual}
+a{color:var(--bleu)}
+button,input,select{font:inherit}
+:focus-visible{outline:3px solid var(--cyan-f);outline-offset:2px}
+h1:focus,h1:focus-visible{outline:none}
+.wrap{max-width:760px;margin:0 auto;padding:16px}
+/* Barre du haut */
+.top{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--ligne);padding-top:env(safe-area-inset-top)}
+.top-in{max-width:760px;margin:0 auto;height:var(--top-h);display:flex;align-items:center;gap:10px;padding:0 12px}
+.top .logo{height:42px;max-width:56%;object-fit:contain;width:auto;margin:0 auto}
+.ico-btn{display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:52px;height:48px;border:0;background:transparent;color:var(--bleu);border-radius:12px;font-size:.72rem;font-weight:700;cursor:pointer;text-decoration:none}
+.ico-btn svg{width:26px;height:26px}
+.ico-btn:active{background:#E7F1F8}
+.bande{height:6px;background:linear-gradient(90deg,var(--teal) 0 16.66%,var(--jaune) 0 33.33%,var(--peche) 0 50%,var(--rose) 0 66.66%,var(--bleu) 0 83.33%,var(--cyan) 0)}
+/* Navigation du bas */
+.nav{position:fixed;left:0;right:0;bottom:0;z-index:30;background:#fff;border-top:1px solid var(--ligne);padding-bottom:env(safe-area-inset-bottom)}
+.nav-in{max-width:760px;margin:0 auto;height:var(--nav-h);display:grid;grid-template-columns:repeat(5,1fr)}
+.nav a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;text-decoration:none;color:var(--ardoise);font-size:.74rem;font-weight:700;border-top:4px solid transparent}
+.nav a svg{width:26px;height:26px}
+.nav a[aria-current=page]{color:var(--bleu);border-top-color:var(--c,var(--bleu));background:#F1F7FA}
+/* Cartes et tuiles */
+.card{background:#fff;border:1px solid var(--ligne);border-radius:16px;padding:16px;margin:0 0 14px}
+.hero{background:#fff;border:1px solid var(--ligne);border-left:8px solid var(--teal);border-radius:16px;padding:18px;margin:0 0 16px}
+.hero p{color:var(--ardoise)}
+.steps{display:grid;gap:10px;margin:12px 0 0;padding:0;list-style:none;counter-reset:s}
+.steps li{display:flex;gap:12px;align-items:flex-start}
+.steps li:before{counter-increment:s;content:counter(s);flex:none;width:32px;height:32px;border-radius:50%;background:var(--teal-f);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 16px}
+.tile{display:flex;flex-direction:column;gap:8px;align-items:flex-start;text-align:left;background:#fff;border:2px solid var(--ligne);border-top:8px solid var(--c);border-radius:16px;padding:14px;min-height:140px;color:var(--encre);text-decoration:none;cursor:pointer;font:inherit}
+.tile:active{background:#F1F7FA}
+.tile img{width:44px;height:44px}
+.tile b{font-size:1.02rem;line-height:1.2;color:var(--encre)}
+.tile span{font-size:.88rem;color:var(--gris);line-height:1.3}
+.tile[aria-disabled=true]{opacity:.7;border-style:dashed}
+@media(min-width:620px){.grid{grid-template-columns:repeat(3,1fr)}}
+/* Boutons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:0 20px;border-radius:12px;border:2px solid var(--bleu);background:var(--bleu);color:#fff;font-weight:800;text-decoration:none;cursor:pointer}
+.btn.sec{background:#fff;color:var(--bleu)}
+.btn.rose{background:var(--rose-f);border-color:var(--rose-f)}
+.btn.block{display:flex;width:100%}
+.btn[disabled]{opacity:.5;cursor:not-allowed}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}
+.chip{min-height:46px;padding:0 16px;border-radius:999px;border:2px solid var(--ligne);background:#fff;color:var(--encre);font-weight:700;cursor:pointer}
+.chip[aria-pressed=true]{background:var(--teal-f);border-color:var(--teal-f);color:#fff}
+.badge{display:inline-block;padding:2px 10px;border-radius:999px;font-size:.78rem;font-weight:800;background:#E6F3F3;color:#1F5F64}
+.badge.cdad{background:#E3F2F6;color:#0A5F70}.badge.claj{background:#FFF3D6;color:#5C4B00}
+/* Encadrés : texte foncé sur fond clair */
+.note{border-radius:12px;padding:12px 14px;margin:0 0 14px;border-left:6px solid var(--bleu);background:#E7F1F8;color:var(--encre)}
+.note.alerte{border-left-color:var(--rose-f);background:#FDECEF}
+.note.attention{border-left-color:var(--jaune-f);background:#FFF5D9}
+.note.ok{border-left-color:var(--teal-f);background:#E6F3F3}
+.note b{color:var(--encre)}
+.regles{background:#fff;border:2px solid var(--rose-f);border-radius:16px;overflow:hidden;margin:0 0 16px}
+.regles h2{margin:0;padding:12px 16px;background:var(--rose-f);color:#fff;font-size:1.1rem}
+.regles ul{margin:0;padding:12px 16px 12px 36px;color:var(--encre)}
+.regles li{margin:6px 0}
+.regles li b{color:var(--rose-f)}
+/* Liste de choix */
+.liste .badge{align-self:flex-start;white-space:nowrap;height:auto}
+.telcard{display:block;margin:0 0 16px;padding:14px 16px;border-radius:16px;background:var(--bleu);color:#fff;text-align:center}
+.telcard .tt{font-weight:700;font-size:.95rem;opacity:.95}
+.telcard .tn{display:block;margin-top:4px;font-weight:800;font-size:1.7rem;letter-spacing:.02em;color:#fff;text-decoration:none}
+.telcard .ti{margin-top:2px;font-size:.9rem}
+.telcard.vide{background:#fff;color:var(--ardoise);border:2px dashed var(--ligne)}
+.telcard.vide .tn{font-size:1.1rem;color:var(--ardoise)}
+.choix{display:grid;gap:10px;margin:0 0 14px}
+.choix button{display:flex;justify-content:space-between;align-items:center;gap:10px;min-height:56px;padding:10px 14px;text-align:left;background:#fff;border:2px solid var(--ligne);border-radius:14px;color:var(--encre);font-weight:700;cursor:pointer}
+.choix button:active{background:#F1F7FA}
+/* Formulaire intégré */
+.fview{display:flex;flex-direction:column;height:calc(100dvh - var(--top-h) - var(--nav-h) - 6px - env(safe-area-inset-bottom) - env(safe-area-inset-top))}
+.fbar{display:flex;align-items:center;gap:8px;padding:8px 12px;background:#fff;border-bottom:1px solid var(--ligne)}
+.fbar .t{font-weight:800;color:var(--bleu);flex:1;line-height:1.2;font-size:.98rem}
+.fframe{flex:1;width:100%;border:0;background:#fff}
+.fnote{padding:6px 12px;font-size:.85rem;background:#E6F3F3;color:var(--encre)}
+/* Champs */
+label{display:block;font-weight:700;color:var(--ardoise);margin:12px 0 4px}
+input[type=text],input[type=email],input[type=search]{width:100%;min-height:50px;padding:0 14px;border:2px solid var(--ligne);border-radius:12px;background:#fff;color:var(--encre)}
+details{background:#fff;border:1px solid var(--ligne);border-radius:14px;margin:0 0 10px}
+summary{cursor:pointer;padding:14px;font-weight:800;color:var(--bleu);min-height:52px}
+details .in{padding:0 14px 8px}
+.res{padding:10px 0;border-top:1px solid var(--ligne)}
+.res a{font-weight:700}
+.res small{display:block;color:var(--gris)}
+.liste{list-style:none;margin:0;padding:0}
+.liste li{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-top:1px solid var(--ligne)}
+.petit{font-size:.88rem;color:var(--gris)}
+.cache{display:none!important}
+@media print{.nav,.top{display:none}}
+</style>
+</head>
+<body>
+<div class="top" role="banner">
+  <div class="top-in">
+    <a class="ico-btn" href="#/accueil" aria-label="Accueil" id="btnHome">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v9.5h13V10"/><path d="M10 19.5v-5h4v5"/></svg>Accueil</a>
+    <img class="logo" src="img/logo-horizontal.png" alt="Groupe de défense des mineurs du barreau de Rennes">
+    <a class="ico-btn" href="#/profil" aria-label="Mon profil">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="8.5" r="3.6"/><path d="M4.5 20c.8-3.6 3.8-5.5 7.5-5.5s6.7 1.9 7.5 5.5"/></svg>Profil</a>
+  </div>
+  <div class="bande"></div>
+</div>
+<main id="vue" tabindex="-1" aria-live="polite"></main>
+<nav class="nav" aria-label="Navigation principale"><div class="nav-in" id="nav"></div></nav>
+
+<script src="config.js"></script>
+<script>
+(function(){
+"use strict";
+var C=window.GDM_CONFIG, V=document.getElementById("vue"), NAV=document.getElementById("nav");
+/* ---------- Stockage local (jamais envoyé nulle part) ---------- */
+var S={get:function(k){try{return JSON.parse(localStorage.getItem("gdm."+k))}catch(e){return null}},
+ set:function(k,v){try{localStorage.setItem("gdm."+k,JSON.stringify(v));return true}catch(e){return false}},
+ del:function(k){try{localStorage.removeItem("gdm."+k)}catch(e){}}};
+function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
+function profil(){return S.get("profil")||{}}
+function aProfil(){var p=profil();return !!(p.nom&&p.email)}
+var IC={
+ maison:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v9.5h13V10"/><path d="M10 19.5v-5h4v5"/></svg>',
+ fiche:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1"/><path d="M8.5 11l2 2 4-4"/><path d="M8.5 17h7"/></svg>',
+ signaler:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5 22 20H2L12 3.5Z"/><path d="M12 10v4.5"/><path d="M12 17.2v.1"/></svg>',
+ ressources:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21.5V5.5Z"/><path d="M4 18.5A2.5 2.5 0 0 1 6.5 16H20"/></svg>',
+ aide:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.6 2.6 0 1 1 3.6 2.4c-.8.4-1.1 1-1.1 1.8"/><path d="M12 17v.1"/></svg>'
+};
+var ONGLETS=[["accueil","Accueil",IC.maison,"#0F558F"],["fiches","Fiches",IC.fiche,"#2F7A80"],["signaler","Signaler",IC.signaler,"#C8304A"],["ressources","Ressources",IC.ressources,"#6B5C00"],["aide","Aide",IC.aide,"#0F558F"]];
+function onglet(nom,arg){ if(nom==="f"){ return /^gav/.test(arg)?"signaler":"fiches" } return nom==="depots"?"accueil":nom }
+function majNav(r){NAV.innerHTML=ONGLETS.map(function(o){var cur=(r===o[0]);
+ return '<a href="#/'+o[0]+'" style="--c:'+o[3]+'"'+(cur?' aria-current="page"':'')+'>'+o[2]+o[1]+'</a>'}).join("")}
+/* ---------- URL de formulaire avec préremplissage (données locales seulement) ---------- */
+function urlForm(cle,opt){
+  opt=opt||{}; var f=C.formulaires[cle], p=profil(), q=[], pf=f.prefill||{};
+  function add(k,v){if(k&&v)q.push(encodeURIComponent(k)+"="+encodeURIComponent(v))}
+  if(p.nom||p.prenom){
+    if(pf.nom) add(pf.nom,((p.prenom||"")+" "+(p.nom||"")).trim());
+    if(pf.prenom) add(pf.prenom,p.prenom); if(pf.nomFamille) add(pf.nomFamille,p.nom);
+  }
+  if(p.email) add(pf.email,p.email);
+  if(opt.date&&f.datee){var d=opt.date; q.push(encodeURIComponent(f.datee+"[day]")+"="+d.getDate(),encodeURIComponent(f.datee+"[month]")+"="+(d.getMonth()+1),encodeURIComponent(f.datee+"[year]")+"="+d.getFullYear())}
+  if(f.extra){for(var k in f.extra){q.push(encodeURIComponent(k)+"="+encodeURIComponent(f.extra[k]))}}
+  return C.baseFormulaires+f.id+(q.length?"?"+q.join("&"):"");
+}
+function tuile(c,img,titre,desc,href,off){return '<a class="tile" style="--c:'+c+'" href="'+href+'"'+(off?' aria-disabled="true"':'')+'><img src="img/'+img+'" alt="" width="44" height="44"><b>'+titre+'</b><span>'+desc+'</span></a>'}
+function contactGdm(){
+  var g=C.contactGdm; if(!g) return "";
+  return '<section class="card"><h2>Écrire au GDM</h2><p class="petit" style="margin:0 0 8px">Une question, une remarque, une suggestion ? Ne mentionnez aucun nom de justiciable.</p>'+
+  '<a class="btn block" href="mailto:'+esc(g.mail)+'?subject='+encodeURIComponent(g.objet)+'">Écrire au GDM</a></section>';
+}
+function contactOrdre(){
+  var o=C.contactOrdre; if(!o) return "";
+  return '<section class="card"><h2>Contacter l’Ordre</h2><p class="petit" style="margin:0 0 8px">'+esc(o.horaires)+'</p>'+
+  '<a class="btn block" href="tel:'+esc(o.tel)+'">Appeler les services de l’Ordre · '+esc(o.telAffiche)+'</a>'+
+  '<a class="btn sec block" style="margin-top:8px" href="mailto:'+esc(o.mail)+'?subject='+encodeURIComponent(o.objet)+'">Écrire aux services de l’Ordre</a></section>';
+}
+/* ---------- Vues ---------- */
+var vues={};
+function tel(){
+  var n=C.telPermanence;
+  if(!n) return '<section class="telcard vide" aria-label="Permanence téléphonique du GDM"><div class="tt">Permanence téléphonique du GDM</div><div class="tn">Numéro bientôt affiché</div></section>';
+  return '<section class="telcard" aria-label="Permanence téléphonique du GDM"><div class="tt">Permanence téléphonique du GDM</div><a class="tn" href="tel:'+esc(n.replace(/[^+0-9]/g,""))+'">'+esc(n)+'</a>'+(C.telPermanenceInfo?'<div class="ti">'+esc(C.telPermanenceInfo)+'</div>':'')+'</section>';
+}
+vues.accueil=function(){
+  var site=C.siteWeb?'<a class="btn sec" style="margin:4px 8px 4px 0" href="'+esc(C.siteWeb)+'" target="_blank" rel="noopener noreferrer">Site internet du GDM</a>':'';
+  var ag=C.agendaUrl?'<a class="btn sec" style="margin:4px 0" href="'+esc(C.agendaUrl)+'" target="_blank" rel="noopener noreferrer">Ouvrir l’agenda complet</a>':'';
+  setTimeout(chargerAgenda,0);
+  return '<div class="wrap"><section class="hero"><h1>Bienvenue</h1>'+
+  '<p style="margin:0">Application des avocats du Groupe de défense des mineurs : remplir les <b>fiches d’analyse</b> de vos permanences, <b>signaler</b> au Bâtonnier, retrouver les <b>ressources</b> et les prochaines échéances. Sur téléphone comme sur ordinateur.</p></section>'+
+  tel()+
+  (aProfil()?'':'<div class="note attention"><b>Gagnez du temps :</b> enregistrez votre nom et votre e-mail pour préremplir les formulaires. Ils restent sur cet appareil. <a href="#/profil"><b>Mon profil</b></a></div>')+
+  '<h2>Que souhaitez-vous faire ?</h2><div class="grid">'+
+  tuile("#2F7A80","cartable.png","Fiche du mercredi","Consultations gratuites mineurs, après-midi","#/fiches/mercredi")+
+  tuile("#0E7F92","groupe.png","Fiche téléphonique","Permanence téléphonique du GDM","#/fiches/telephone")+
+  tuile("#C8304A","parole.png","Signaler","Interpellation et garde à vue (majeur ou mineur)","#/signaler")+
+  tuile("#6B5C00","balance.png","Ressources","Livret de parrainage, guides du CNB, numéro","#/ressources")+
+  tuile("#8A4B00","avocats.png","Autres déclarations","Autres permanences, factures, incidents : application accès au droit","#/fiches")+
+  tuile("#0F558F","mains.png","Aide et contact","Installer l’application, contacts, confidentialité","#/aide")+'</div>'+
+  '<section class="card"><h2>Prochaines échéances</h2><div id="agenda"><p class="petit">Chargement…</p></div><p style="margin:8px 0 0">'+site+ag+'</p></section>'+
+  contactGdm()+contactOrdre()+
+  '<section class="card"><h2>Comment ça marche ?</h2><ol class="steps"><li><div><b>Choisissez la démarche</b><br><span class="petit">Touchez une tuile ci-dessus.</span></div></li>'+
+  '<li><div><b>Remplissez le formulaire</b><br><span class="petit">Une seule page à dérouler, des cases à cocher. Vos nom et e-mail sont préremplis.</span></div></li>'+
+  '<li><div><b>Conservez votre numéro de dépôt</b><br><span class="petit">Il vous est donné à l’envoi et par e-mail.</span></div></li></ol></section>'+
+  '<div class="note ok"><b>Confidentialité.</b> Aucun nom de justiciable n’est demandé : seulement des cases à cocher et des totaux. L’application n’utilise ni suivi ni cookie.</div>'+
+  '<p class="petit">'+esc(C.edition)+' · version '+esc(C.version)+'</p></div>';
+};
+function chargerAgenda(){
+  var box=document.getElementById("agenda"); if(!box) return;
+  fetch("agenda.json",{cache:"no-cache"}).then(function(r){return r.json()}).then(function(j){
+    var now=new Date(); now.setHours(0,0,0,0);
+    var e=(j.echeances||[]).filter(function(x){return new Date(x.date)>=now}).sort(function(a,b){return new Date(a.date)-new Date(b.date)}).slice(0,6);
+    box.innerHTML=e.length?'<ul class="liste">'+e.map(function(x){var d=new Date(x.date);return '<li><span><b>'+esc(x.titre)+'</b><br><span class="petit">'+esc(d.toLocaleDateString("fr-FR",{weekday:"long",day:"numeric",month:"long",year:"numeric"}))+(x.heure?" · "+esc(x.heure):"")+(x.lieu?" · "+esc(x.lieu):"")+'</span></span><span class="badge">'+esc(x.type||"")+'</span></li>'}).join("")+'</ul>':'<p>Aucune échéance publiée pour le moment.</p>';
+  }).catch(function(){box.innerHTML='<p>L’agenda n’a pas pu être chargé.</p>'});
+}
+vues.fiches=function(arg){
+  if(arg&&C.formulaires[arg]&&C.formulaires[arg].datee) return panneauFiche(arg);
+  return '<div class="wrap"><h1>Fiches d’analyse</h1><p>Deux fiches sont propres au Groupe de défense des mineurs. Elles ne servent <b>que</b> pour les cas relevant du GDM.</p><div class="choix">'+
+  '<button data-go="#/fiches/mercredi"><span><b>Permanence du mercredi après-midi</b><br><span class="petit">Consultations gratuites mineurs, Cité judiciaire</span></span><span aria-hidden="true">›</span></button>'+
+  '<button data-go="#/fiches/telephone"><span><b>Permanence téléphonique</b><br><span class="petit">Une fiche par jour de sollicitations</span></span><span aria-hidden="true">›</span></button></div>'+
+  '<section class="card" style="margin-top:18px"><h2>Autres cas</h2><p>Permanences pénales, gardes à vue, auditions libres, D-Code, interventions scolaires, <b>factures des permanences CDAD</b> et incidents sur un lieu de permanence se déclarent dans l’<b>application générale d’accès au droit</b> du barreau.</p>'+
+  '<a class="btn block" href="'+esc(C.appAccesAuDroit)+'" target="_blank" rel="noopener noreferrer">Ouvrir l’application accès au droit</a></section>'+
+  '<section class="card"><h2>Facturation des permanences du GDM</h2><p>Les permanences du GDM relèvent d’un groupe de défense (CLAJ) : <b>ne facturez pas dans cette application</b>. Envoyez <b>une seule facture annuelle</b>, uniquement par mail, à <a href="mailto:'+esc((C.claj||{}).email)+'">'+esc((C.claj||{}).email)+'</a>, <b>avant le '+esc((C.claj||{}).echeance)+'</b>, à l’ordre de la CARPA Ouest Atlantique Bretagne.</p><p>Seule exception : l’audition libre d’un mineur relève de l’aide juridictionnelle.</p></section>'+
+  '<div class="note"><b>Toutes les permanences donnent lieu à une fiche d’analyse.</b> Aucun nom, aucune date de naissance, aucun établissement : uniquement des cases à cocher.</div></div>';
+};
+function panneauFiche(cle){
+  var f=C.formulaires[cle];
+  return '<div class="wrap"><a href="#/fiches" class="btn sec" style="min-height:44px">← Autre fiche</a><h1 style="margin-top:14px">'+esc(f.titre)+'</h1>'+
+  '<div class="note">Une page à dérouler. Indiquez le nombre de jeunes ou de situations : les questions s’affichent au fur et à mesure.</div>'+
+  '<label>'+(cle==="telephone"?"Date de la sollicitation":"Date de la permanence")+'</label><div class="chips" id="dates"><button class="chip" data-d="0" aria-pressed="true">Aujourd’hui</button><button class="chip" data-d="1" aria-pressed="false">Hier</button><button class="chip" data-d="x" aria-pressed="false">Une autre date</button></div>'+
+  '<p class="petit">« Une autre date » : vous la choisirez dans le formulaire.</p>'+
+  '<a class="btn block" id="go" href="#/f/'+cle+'">Ouvrir la fiche</a></div>';
+}
+vues.signaler=function(){
+  var g=C.formulaires.gav;
+  return '<div class="wrap"><h1 style="color:var(--rose-f)">Signaler</h1><p>Un seul formulaire pour signaler une <b>interpellation ou une garde à vue</b> : conditions matérielles, droits, mobilisation, violences ou atteintes. Il est commun avec l’application accès au droit de l’Ordre. Aucune donnée nominative.</p>'+
+  '<section class="regles" aria-labelledby="rb"><h2 id="rb">Les règles en bref</h2><ul>'+
+  '<li><b>Aucun nom</b>, aucune date de naissance, aucun n° de procédure, aucune photo : « Personne A », « Mineur A ». Agents : unité seulement.</li>'+
+  '<li><b>Accord de la personne</b> pour signaler des violences ; sans accord, seuls vos constats personnels.</li>'+
+  '<li><b>Faits, pas interprétations</b>. Cochez plutôt que d’écrire.</li>'+
+  '<li><b>Transmettez sous 2 jours</b> si possible. Urgence : cochez « Urgent » ; vous pouvez demander à être rappelé(e).</li></ul></section>'+
+  '<div class="choix">'+(g.actif?'<button data-go="#/f/gav"><span><b>Interpellation et garde à vue</b><br><span class="petit">Garde à vue, retenue pour vérification d’identité, audition libre</span></span><span aria-hidden="true">›</span></button>':'<button disabled style="opacity:.75;border-style:dashed"><span><b>Interpellation et garde à vue</b><br><span class="petit">Bientôt disponible.</span></span></button>')+
+  '<a class="btn sec block" style="margin-top:6px" href="'+esc(C.appAccesAuDroit)+'" target="_blank" rel="noopener noreferrer">Incident sur un lieu de permanence : application accès au droit ↗</a></div>'+
+  '<div class="note"><b>Première question :</b> la personne est-elle <b>majeure ou mineure</b> ? Réponse obligatoire : pour un mineur, le signalement est transmis au GDM ; pour un majeur, aux délégataires pénaux du Bâtonnier. Le Bâtonnier est aussi alerté en cas d’urgence, de rappel demandé ou d’atteinte. Rien n’est publié. Documents et modèles : <a href="#/ressources">Ressources</a>.</div></div>';
+};
+vues.ressources=function(){
+  var h='<div class="wrap"><h1 style="color:var(--jaune-f)">Ressources</h1>'+tel()+'<p>Documents et guides utiles, classés par thème.</p><label for="q">Rechercher</label><input id="q" type="search" placeholder="Mot du titre ou de la description" autocomplete="off"><div id="res" style="margin-top:14px"><p class="petit">Chargement…</p></div></div>';
+  setTimeout(chargerRes,0); return h;
+};
+var RES=null;
+function chargerRes(){
+  var box=document.getElementById("res"); if(!box) return;
+  function aff(){
+    var q=((document.getElementById("q")||{}).value||"").toLowerCase().trim(), h="";
+    RES.categories.forEach(function(c){
+      var e=c.entrees.filter(function(x){return !q||(x.titre+" "+x.desc).toLowerCase().indexOf(q)>-1});
+      if(!e.length) return;
+      h+='<details'+(q?' open':'')+'><summary>'+esc(c.titre)+' ('+e.length+')</summary><div class="in">'+e.map(function(x){return '<div class="res">'+(x.url?'<a href="'+esc(x.url)+'" target="_blank" rel="noopener noreferrer">'+esc(x.titre)+'</a>':'<b>'+esc(x.titre)+'</b> <span class="badge">lien à venir</span>')+(x.acces==="membres"?' <span class="badge">membres</span>':'')+'<small>'+esc(x.desc)+'</small></div>'}).join("")+'</div></details>';
+    });
+    box.innerHTML=h||'<p>Aucun résultat.</p>';
+  }
+  function init(){aff();var q=document.getElementById("q"); if(q) q.addEventListener("input",aff)}
+  if(RES) return init();
+  fetch("ressources.json").then(function(r){return r.json()}).then(function(j){RES=j;init()}).catch(function(){box.innerHTML='<div class="note alerte">La liste n’a pas pu être chargée. Vérifiez votre connexion.</div>'});
+}
+vues.aide=function(){
+  var mails=C.contacts.map(function(c){return '<li><span>'+esc(c.libelle)+'</span><a href="mailto:'+esc(c.email)+'">'+esc(c.email)+'</a></li>'}).join("");
+  return '<div class="wrap"><h1>Aide et contact</h1>'+
+  '<button class="btn block cache" id="btnInstall">Installer l’application</button>'+
+  '<h2 style="margin-top:14px">Installer sur l’écran d’accueil</h2>'+
+  '<details><summary>iPhone ou iPad (Safari)</summary><div class="in"><ol><li>Ouvrez l’adresse de l’application dans <b>Safari</b>.</li><li>Touchez le bouton <b>Partager</b> (carré avec une flèche vers le haut).</li><li>Choisissez <b>Sur l’écran d’accueil</b>, puis <b>Ajouter</b>.</li></ol></div></details>'+
+  '<details><summary>iPhone (Chrome)</summary><div class="in"><ol><li>Touchez <b>Partager</b> (carré avec une flèche), à droite de la barre d’adresse. S’il n’apparaît pas : menu <b>« ⋯ »</b>, puis <b>Partager</b>.</li><li>Touchez <b>Sur l’écran d’accueil</b> (ou « Ajouter à l’écran d’accueil »), puis <b>Ajouter</b>.</li></ol><p class="petit">Nécessite iOS 16.4 ou plus récent ; sinon, utilisez Safari.</p></div></details>'+
+  '<details><summary>Téléphone Android (Chrome)</summary><div class="in"><ol><li>Ouvrez l’adresse dans <b>Chrome</b>.</li><li>Touchez les <b>trois points</b> en haut à droite.</li><li>Choisissez <b>Installer l’application</b> ou <b>Ajouter à l’écran d’accueil</b>.</li></ol></div></details>'+
+  '<details><summary>Ordinateur Windows ou Mac (Chrome ou Edge)</summary><div class="in"><ol><li>Ouvrez l’adresse dans Chrome ou Edge.</li><li>Cliquez sur l’icône <b>Installer</b> à droite de la barre d’adresse (Mac, Safari : menu <b>Fichier › Ajouter au Dock</b>).</li><li>Confirmez. L’application s’ouvre dans sa propre fenêtre.</li></ol></div></details>'+
+  contactGdm()+contactOrdre()+'<h2 style="margin-top:18px">Contacts du GDM</h2><div class="card"><ul class="liste">'+mails+'</ul></div>'+
+  '<h2>Confidentialité</h2><div class="card"><ul><li>Ce que vous saisissez dans les formulaires est transmis à <b>Jotform (hébergement européen)</b> pour le GDM ou l’Ordre, selon la mention figurant sur chaque formulaire.</li><li>Votre profil et vos numéros de dépôt restent <b>sur cet appareil</b> ; vous pouvez les effacer.</li><li>Aucun cookie, aucun traceur, aucune police externe.</li><li>Ne saisissez jamais de nom de justiciable.</li></ul></div>'+
+  '<p class="petit">'+esc(C.edition)+' · version '+esc(C.version)+'</p></div>';
+};
+vues.profil=function(){
+  var p=profil();
+  return '<div class="wrap"><h1>Mon profil</h1><div class="note ok">Ces informations servent uniquement à <b>préremplir</b> les formulaires. Elles sont enregistrées <b>sur cet appareil</b> et ne sont envoyées nulle part, sauf quand vous envoyez un formulaire.</div>'+
+  '<label for="pPrenom">Prénom</label><input id="pPrenom" type="text" autocomplete="given-name" value="'+esc(p.prenom)+'">'+
+  '<label for="pNom">Nom</label><input id="pNom" type="text" autocomplete="family-name" value="'+esc(p.nom)+'">'+
+  '<label for="pMail">E-mail professionnel</label><input id="pMail" type="email" autocomplete="email" value="'+esc(p.email)+'">'+
+  '<p style="margin-top:16px"><button class="btn block" id="pSave">Enregistrer</button></p><p id="pMsg" class="petit" role="status"></p>'+
+  '<p><button class="btn sec block" id="pDel">Effacer mon profil et mes numéros de dépôt</button></p></div>';
+};
+vues.depots=function(){
+  var d=S.get("depots")||[];
+  var l=d.length?'<ul class="liste">'+d.map(function(x,i){return '<li><span><b>'+esc(x.n)+'</b><br><span class="petit">'+esc(x.date)+' · '+esc(x.type)+'</span></span><button class="chip" data-del="'+i+'" aria-label="Supprimer '+esc(x.n)+'">Retirer</button></li>'}).join("")+'</ul>':'<p>Aucun numéro noté pour l’instant.</p>';
+  return '<div class="wrap"><h1 style="color:var(--peche-f)">Mes dépôts</h1><p>Notez ici le numéro reçu après chaque envoi. La liste reste sur cet appareil.</p>'+
+  '<div class="card">'+l+'</div><div class="card"><h3>Noter un numéro</h3><label for="dN">Numéro de dépôt</label><input id="dN" type="text" placeholder="GDM-26-0001" autocomplete="off"><label for="dT">Pour (facultatif)</label><input id="dT" type="text" placeholder="Ex. intervention lycée, 12/11" autocomplete="off"><p style="margin-top:14px"><button class="btn block" id="dAdd">Ajouter</button></p></div>'+
+  (d.length?'<button class="btn sec block" id="dCsv">Exporter en CSV</button>':'')+'</div>';
+};
+vues.f=function(arg){
+  var parts=(arg||"").split("/"), cle=parts[0], f=C.formulaires[cle];
+  if(!f||!f.actif) return '<div class="wrap"><div class="note alerte">Ce formulaire n’est pas disponible.</div><a class="btn" href="#/accueil">Accueil</a></div>';
+  var opt={}, dd=sessionStorageGet("gdm.date"); if(f.datee&&(dd==="0"||dd==="1")){var d=new Date();d.setDate(d.getDate()-Number(dd));opt.date=d}
+  if(f.datee&&f.dateAujourdhui){opt.date=new Date()}
+  var u=urlForm(cle,opt), retour=cle==="gav"?"#/signaler":"#/fiches";
+  return '<div class="fview"><div class="fbar"><a class="btn sec" style="min-height:44px;padding:0 14px" href="'+retour+'" aria-label="Retour">←</a><div class="t">'+esc(f.titre)+'</div><a class="ico-btn" href="'+esc(u)+'" target="_blank" rel="noopener noreferrer" aria-label="Ouvrir dans le navigateur" title="Ouvrir dans le navigateur"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6"/><path d="M20 4l-9 9"/><path d="M18 14v5H5V6h5"/></svg>Navigateur</a></div>'+
+  '<div class="fnote">'+(aProfil()?'Vos nom et e-mail sont préremplis depuis votre profil.':'Astuce : enregistrez votre <a href="#/profil">profil</a> pour préremplir ce formulaire.')+' Gardez le numéro de dépôt reçu à l’envoi.</div>'+
+  '<iframe class="fframe" title="'+esc(f.titre)+'" src="'+esc(u)+'"></iframe></div>';
+};
+function sessionStorageGet(k){try{return sessionStorage.getItem(k)}catch(e){return null}}
+function sessionStorageSet(k,v){try{sessionStorage.setItem(k,v)}catch(e){}}
+/* ---------- Routage ---------- */
+function route(){
+  var h=(location.hash||"#/accueil").replace(/^#\/?/,""), i=h.indexOf("/"), nom=i<0?h:h.slice(0,i), arg=i<0?"":h.slice(i+1);
+  if(!vues[nom]){nom="accueil";arg=""}
+  var navNom=onglet(nom,arg);
+  V.innerHTML=vues[nom](arg); majNav(navNom); liens(nom);
+  if(nom!=="f"){window.scrollTo(0,0);var t=V.querySelector("h1");if(t){t.setAttribute("tabindex","-1");try{t.focus({preventScroll:true})}catch(e){}}}
+  document.body.style.overflow=(nom==="f")?"hidden":"";
+}
+function liens(nom){
+  V.querySelectorAll("[data-go]").forEach(function(b){b.addEventListener("click",function(){location.hash=b.getAttribute("data-go")})});
+  V.querySelectorAll("button[data-type]").forEach(function(b){b.addEventListener("click",function(){})});
+  if(nom==="fiches"){var ch=document.getElementById("dates"); if(ch){sessionStorageSet("gdm.date","0");ch.querySelectorAll(".chip").forEach(function(c){c.addEventListener("click",function(){ch.querySelectorAll(".chip").forEach(function(x){x.setAttribute("aria-pressed","false")});c.setAttribute("aria-pressed","true");sessionStorageSet("gdm.date",c.getAttribute("data-d"))})})}}
+  if(nom==="profil"){
+    document.getElementById("pSave").addEventListener("click",function(){var p={prenom:val("pPrenom"),nom:val("pNom"),email:val("pMail")};var ok=S.set("profil",p);document.getElementById("pMsg").textContent=ok?"Profil enregistré sur cet appareil.":"Impossible d’enregistrer (stockage bloqué par le navigateur)."});
+    document.getElementById("pDel").addEventListener("click",function(){if(confirm("Effacer votre profil et vos numéros de dépôt de cet appareil ?")){S.del("profil");S.del("depots");route()}});
+  }
+  if(nom==="depots"){
+    var a=document.getElementById("dAdd"); a.addEventListener("click",function(){var n=val("dN");if(!n)return;var d=S.get("depots")||[];d.unshift({n:n,type:val("dT"),date:new Date().toLocaleDateString("fr-FR")});S.set("depots",d);route()});
+    V.querySelectorAll("[data-del]").forEach(function(b){b.addEventListener("click",function(){var d=S.get("depots")||[];d.splice(Number(b.getAttribute("data-del")),1);S.set("depots",d);route()})});
+    var c=document.getElementById("dCsv"); if(c) c.addEventListener("click",function(){var d=S.get("depots")||[];var t="numero;date;libelle\n"+d.map(function(x){return [x.n,x.date,x.type].map(function(s){return '"'+String(s||"").replace(/"/g,'""')+'"'}).join(";")}).join("\n");var b=new Blob(["﻿"+t],{type:"text/csv"});var l=document.createElement("a");l.href=URL.createObjectURL(b);l.download="mes-depots-gdm.csv";l.click()});
+  }
+  if(nom==="aide"&&deferred){var bi=document.getElementById("btnInstall");if(bi){bi.classList.remove("cache");bi.addEventListener("click",function(){deferred.prompt();deferred=null;bi.classList.add("cache")})}}
+}
+function val(id){var e=document.getElementById(id);return e?e.value.trim():""}
+var deferred=null; window.addEventListener("beforeinstallprompt",function(e){e.preventDefault();deferred=e});
+window.addEventListener("hashchange",route); route();
+if("serviceWorker" in navigator){window.addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){})})}
+})();
+</script>
+</body>
+</html>

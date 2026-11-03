@@ -1,0 +1,5 @@
+{
+  "maj": "2026-10-27",
+  "note": "À tenir à jour par le bureau du GDM. Une ligne par échéance : date au format AAAA-MM-JJ, type = Réunion, Formation, AG ou Autre. Seules les échéances à venir s'affichent.",
+  "echeances": []
+}

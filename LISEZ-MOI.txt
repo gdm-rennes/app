@@ -1,0 +1,46 @@
+GDM PERMANENCES - application installable (PWA)
+Edition octobre 2026 - Groupe de defense des mineurs, barreau de Rennes
+
+CONTENU : fichiers statiques uniquement. AUCUNE donnee n'est stockee ici.
+Les donnees (statistiques, factures, signalements) vont dans Jotform.
+
+PUBLIER (1re fois)
+1. Espace client OVH > Web Cloud > Noms de domaine > groupe-defense-mineur.com > Zone DNS.
+   Ajouter un sous-domaine "app" (ou Hebergement > Multisite > Ajouter un domaine).
+2. Activer le certificat SSL (Let's Encrypt, gratuit) pour ce sous-domaine.
+3. Hebergement > FTP-SSH : creer un acces, ou utiliser le Gestionnaire de fichiers.
+4. Envoyer TOUT le contenu de ce dossier (y compris .htaccess, fonts, img) dans
+   le dossier racine du sous-domaine.
+5. Ouvrir https://app.groupe-defense-mineur.com sur un telephone et un ordinateur.
+
+AVANT PUBLICATION - a completer dans config.js
+- urlApplication
+- les 5 liens de formulaires Jotform (remplacer XXXXXXXXXXXXXXX)
+- les adresses de contact
+- verifier l'adresse du destinataire des factures (CARPA)
+- remplacer les liens placeholder de ressources.json par les vrais PDF
+
+ALIMENTER LES RESSOURCES : modifier ressources.json (un bloc par document),
+deposer les PDF dans un dossier "ressources". Rien d'autre a toucher.
+
+METTRE A JOUR : modifier les fichiers, changer le numero de version dans
+config.js ET dans sw.js (const CACHE = "gdm-vX"), renvoyer par FTP.
+
+INSTALLER : iPhone Safari > Partager > Sur l'ecran d'accueil ;
+Android Chrome > menu > Installer ; Windows/Mac Chrome ou Edge > icone installer.
+
+ACCES RESERVE : decommenter le bloc Basic-auth dans .htaccess (cree .htpasswd).
+
+SOLUTION DE REPLI : sans hebergement, utiliser l'App Jotform "GDM Barreau de Rennes"
+comme page d'accueil.
+
+--- Version 4.0.0 (28/10/2026) ---
+- Signaler : formulaire GAV unique de l'Ordre (263003035193042), commun avec l'application accès au droit ; premier choix majeur / mineur (mineur -> GDM, majeur -> délégataires pénaux). S1-GDM, S2-GDM et G3 retirés.
+- Accueil et Aide : boutons « Appeler / Écrire aux services de l'Ordre » (02 99 31 83 11, cite@), lien réservé aux avocats.
+- Ressources : renvoi vers les documents de l'application accès au droit.
+- noindex (balise, robots.txt, en-tête X-Robots-Tag) : site non référencé.
+- Redéposer tout le dossier sur Netlify Drop.
+
+--- Version 4.2.0 (30/10/2026) ---
+- Alignement sur le module accès au droit v2.4.1 : textes justifiés (césure française), « sans facturation », facturation CLAJ rappelée dans Fiches (facture annuelle par mail à compta@, avant le 31 janvier, jamais dans l'application ; audition libre d'un mineur = aide juridictionnelle), installation iPhone Chrome et Mac Safari.
+- Bouton « Écrire au GDM » (accueil et aide).
