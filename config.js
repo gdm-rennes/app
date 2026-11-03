@@ -5,14 +5,16 @@
    puis augmenter "version" (cela force la mise à jour sur les téléphones).
    ===================================================================== */
 window.GDM_CONFIG = {
-  version: "4.2.0",
-  edition: "Édition octobre 2026 (v4)",
-  urlApplication: "https://gdm-rennes-permanences.netlify.app",
+  version: "5.0.0",
+  edition: "Édition novembre 2026 (v5)",
+  urlApplication: "https://gdm-rennes-app.pages.dev",
 
   /* ---- À RENSEIGNER PAR LE BUREAU DU GDM (laisser vide = l'élément n'apparaît pas, sauf le téléphone) ---- */
-  telPermanence: "",          // numéro de la permanence téléphonique du GDM, ex. "02 99 00 00 00"
-  telPermanenceInfo: "",      // ex. "Du lundi au vendredi, 9 h – 18 h"
-  siteWeb: "",                // adresse du site internet du GDM, ex. "https://www.exemple.fr"
+  telPermanence: "06 95 53 18 63",   // numéro de la permanence téléphonique du GDM
+  telPermanenceInfo: "7 jours sur 7",   // précision affichée sous le numéro
+  siteWeb: "https://groupe-defense-mineur.fr",   // site internet du GDM
+  siteMembres: "https://groupe-defense-mineur.fr/nos-membres/",   // liste publique des membres
+  siteOrdre: "https://www.ordre-avocats-rennes.fr",   // site de l'Ordre (annuaire des avocats)
   agendaUrl: "",              // lien vers l'agenda partagé (Outlook, Google Agenda…), facultatif
   /* Application générale d'accès au droit (Ordre) : pour tout ce qui n'est pas propre au GDM */
   appAccesAuDroit: "https://acces-au-droit-barreau-rennes.netlify.app",
@@ -33,6 +35,14 @@ window.GDM_CONFIG = {
                  prefill: { prenom: "avocat[first]", nomFamille: "avocat[last]", email: "emailAvocat" },
                  extra: { app: "gdm" } }
   },
+
+  /* Livret de parrainage (annexe 1 du règlement intérieur) : à transmettre par le parrain au terme du parrainage */
+  parrainageForm: "https://form.jotform.com/263065652881059",
+
+  /* Intervention en milieu scolaire : relève du CDAD. Même formulaire (A1) et même circuit que l'application accès au droit :
+     la fiche et la facture alimentent le même registre. Barème : 216 € TTC (180 € HT) par intervention, une seule facture même à deux avocats. */
+  scolaire: { form: "https://form.jotform.com/262983216291058", permanenceId: "P24", dureeH: "2", ttc: "216.00",
+              libelle: "Intervention en établissement scolaire" },
 
   /* Services de l'Ordre (arbitrage du 28/10/2026 : affichés dans l'application, dont le lien n'est communiqué qu'aux avocats).
      Aucune autre ligne de l'annuaire n'est reprise. */

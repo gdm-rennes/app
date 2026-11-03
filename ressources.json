@@ -1,54 +1,54 @@
 {
-  "maj": "2026-10-28",
-  "note": "Liste modifiable. url vide = entrée affichée « lien à venir ». acces : « public » ou « membres » (lien à protéger par le partage OneDrive restreint). Ne jamais déposer sur ce site un document réservé aux membres.",
-  "categories": [
+ "maj": "2026-11-03",
+ "note": "Liste modifiable. url vide = entrée affichée « lien à venir ». acces : « public » ou « membres » (lien à protéger par le partage OneDrive restreint). Ne jamais déposer sur ce site un document réservé aux membres.",
+ "categories": [
+  {
+   "id": "gdm",
+   "titre": "Groupe de défense des mineurs",
+   "entrees": [
     {
-      "id": "gdm",
-      "titre": "Groupe de défense des mineurs",
-      "entrees": [
-        {
-          "titre": "Livret de parrainage du GDM",
-          "desc": "Accueil et accompagnement des nouveaux membres du groupe.",
-          "url": "",
-          "acces": "membres"
-        }
-      ]
-    },
-    {
-      "id": "cnb",
-      "titre": "Guides du CNB",
-      "entrees": [
-        {
-          "titre": "Code de la justice pénale des mineurs : guide pratique (3e édition, décembre 2024)",
-          "desc": "Conseil national des barreaux, commission Libertés et droits de l’Homme, groupe de travail Droit des enfants.",
-          "url": "https://cnb.avocat.fr/medias/guide-cjmpvf-6a7ad05eb9fe95.63151331.pdf",
-          "acces": "public"
-        },
-        {
-          "titre": "L’intervention de l’avocat en assistance éducative aux côtés de l’enfant : guide pratique (2026)",
-          "desc": "Conseil national des barreaux. Guide en cours de mise à jour selon l’avancée des textes en discussion au Parlement.",
-          "url": "https://cnb.avocat.fr/medias/guide-pratique---l-intervention-de-l-avocat-en-assistance-educative-aux-cotes-de-l-enfant---2026-6adf4018524143.10898669.pdf",
-          "acces": "public"
-        },
-        {
-          "titre": "Tous les guides pratiques du CNB",
-          "desc": "Page des guides du Conseil national des barreaux.",
-          "url": "https://cnb.avocat.fr/guides-pratiques",
-          "acces": "public"
-        }
-      ]
-    },
-    {
-      "id": "acces",
-      "titre": "Application accès au droit de l’Ordre",
-      "entrees": [
-        {
-          "titre": "Vademecum des permanences 2026, guide de facturation, CERFA de garde à vue, fiche suite GAV",
-          "desc": "Documents utiles au quotidien, tenus à jour dans l’application générale d’accès au droit (rubrique Ressources).",
-          "url": "https://acces-au-droit-barreau-rennes.netlify.app",
-          "acces": "public"
-        }
-      ]
+     "titre": "Livret de parrainage du GDM",
+     "desc": "Règles du parrainage et livret de fin de parrainage (à envoyer au terme du parrainage).",
+     "url": "#/parrainage",
+     "acces": "membres"
     }
-  ]
+   ]
+  },
+  {
+   "id": "cnb",
+   "titre": "Guides du CNB",
+   "entrees": [
+    {
+     "titre": "Code de la justice pénale des mineurs : guide pratique (3e édition, décembre 2024)",
+     "desc": "Conseil national des barreaux, commission Libertés et droits de l’Homme, groupe de travail Droit des enfants.",
+     "url": "https://cnb.avocat.fr/medias/guide-cjmpvf-6a7ad05eb9fe95.63151331.pdf",
+     "acces": "public"
+    },
+    {
+     "titre": "L’intervention de l’avocat en assistance éducative aux côtés de l’enfant : guide pratique (2026)",
+     "desc": "Conseil national des barreaux. Guide en cours de mise à jour selon l’avancée des textes en discussion au Parlement.",
+     "url": "https://cnb.avocat.fr/medias/guide-pratique---l-intervention-de-l-avocat-en-assistance-educative-aux-cotes-de-l-enfant---2026-6adf4018524143.10898669.pdf",
+     "acces": "public"
+    },
+    {
+     "titre": "Tous les guides pratiques du CNB",
+     "desc": "Page des guides du Conseil national des barreaux.",
+     "url": "https://cnb.avocat.fr/guides-pratiques",
+     "acces": "public"
+    }
+   ]
+  },
+  {
+   "id": "acces",
+   "titre": "Application accès au droit de l’Ordre",
+   "entrees": [
+    {
+     "titre": "Vademecum des permanences 2026, guide de facturation, CERFA de garde à vue, fiche suite GAV",
+     "desc": "Documents utiles au quotidien, tenus à jour dans l’application générale d’accès au droit (rubrique Ressources).",
+     "url": "https://acces-au-droit-barreau-rennes.netlify.app",
+     "acces": "public"
+    }
+   ]
+  }
+ ]
 }

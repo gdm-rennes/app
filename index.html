@@ -49,8 +49,8 @@ h1:focus,h1:focus-visible{outline:none}
 .bande{height:6px;background:linear-gradient(90deg,var(--teal) 0 16.66%,var(--jaune) 0 33.33%,var(--peche) 0 50%,var(--rose) 0 66.66%,var(--bleu) 0 83.33%,var(--cyan) 0)}
 /* Navigation du bas */
 .nav{position:fixed;left:0;right:0;bottom:0;z-index:30;background:#fff;border-top:1px solid var(--ligne);padding-bottom:env(safe-area-inset-bottom)}
-.nav-in{max-width:760px;margin:0 auto;height:var(--nav-h);display:grid;grid-template-columns:repeat(5,1fr)}
-.nav a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;text-decoration:none;color:var(--ardoise);font-size:.74rem;font-weight:700;border-top:4px solid transparent}
+.nav-in{max-width:760px;margin:0 auto;height:var(--nav-h);display:grid;grid-template-columns:repeat(6,1fr)}
+.nav a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;text-decoration:none;color:var(--ardoise);font-size:.68rem;font-weight:700;border-top:4px solid transparent;text-align:center}
 .nav a svg{width:26px;height:26px}
 .nav a[aria-current=page]{color:var(--bleu);border-top-color:var(--c,var(--bleu));background:#F1F7FA}
 /* Cartes et tuiles */
@@ -120,6 +120,25 @@ details .in{padding:0 14px 8px}
 .liste li{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-top:1px solid var(--ligne)}
 .petit{font-size:.88rem;color:var(--gris)}
 .cache{display:none!important}
+.fx{display:grid;gap:16px;margin:0 0 16px}
+.fcol{--c:var(--bleu);--bg:#E3EEF6;border:2px solid var(--c);border-radius:16px;overflow:hidden;background:var(--bg)}
+.fcol.claj{--c:var(--teal-f);--bg:#E6F3F3}
+.fcol h3{margin:0;padding:12px 14px;background:var(--c);color:#fff;font-size:1.05rem;line-height:1.25}
+.fcol h3 small{display:block;font-weight:600;font-size:.84rem;margin-top:2px}
+.fcol ol{list-style:none;margin:0;padding:12px;display:grid;gap:14px;counter-reset:e}
+.fcol li{position:relative;display:flex;gap:10px;align-items:flex-start;padding:10px;background:#fff;border-radius:10px;border-left:6px solid var(--c)}
+.fcol li:before{counter-increment:e;content:counter(e);flex:none;width:30px;height:30px;border-radius:8px;background:var(--c);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center}
+.fcol li:not(:last-child):after{content:"\25BC";position:absolute;left:50%;bottom:-15px;transform:translateX(-50%);font-size:.7rem;color:var(--c);line-height:1}
+.fcol li.cle{border-left-color:var(--rose-f);background:#FDECEF}
+.fcol li.cle:before{background:var(--rose-f)}
+.fcol li b{color:var(--encre)}
+.fcol li span{display:block;font-size:.9rem;color:var(--gris);line-height:1.35}
+.annu{padding:12px 0;border-top:1px solid var(--ligne)}
+.annu .nm{font-weight:800;color:var(--bleu)}
+.annu .ad{font-size:.9rem;color:var(--gris);margin:2px 0 8px}
+.annu .ac{display:flex;flex-wrap:wrap;gap:8px}
+.annu .ac a{min-height:44px;padding:0 14px;font-size:.92rem}
+input[type=date]{width:100%;min-height:50px;padding:0 14px;border:2px solid var(--ligne);border-radius:12px;background:#fff;color:var(--encre);font:inherit}
 @media print{.nav,.top{display:none}}
 </style>
 </head>
@@ -154,10 +173,12 @@ var IC={
  fiche:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1"/><path d="M8.5 11l2 2 4-4"/><path d="M8.5 17h7"/></svg>',
  signaler:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5 22 20H2L12 3.5Z"/><path d="M12 10v4.5"/><path d="M12 17.2v.1"/></svg>',
  ressources:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21.5V5.5Z"/><path d="M4 18.5A2.5 2.5 0 0 1 6.5 16H20"/></svg>',
+ euro:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 6.8A6.5 6.5 0 1 0 17.5 17.2"/><path d="M5 10.5h8"/><path d="M5 13.5h8"/></svg>',
+ annuaire:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8.5" r="3.2"/><path d="M3.5 19c.6-3.2 2.9-4.8 5.5-4.8s4.9 1.6 5.5 4.8"/><path d="M16 5.5a3 3 0 0 1 0 6"/><path d="M18 14.6c1.6.6 2.6 2 2.9 4.4"/></svg>',
  aide:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.6 2.6 0 1 1 3.6 2.4c-.8.4-1.1 1-1.1 1.8"/><path d="M12 17v.1"/></svg>'
 };
-var ONGLETS=[["accueil","Accueil",IC.maison,"#0F558F"],["fiches","Fiches",IC.fiche,"#2F7A80"],["signaler","Signaler",IC.signaler,"#C8304A"],["ressources","Ressources",IC.ressources,"#6B5C00"],["aide","Aide",IC.aide,"#0F558F"]];
-function onglet(nom,arg){ if(nom==="f"){ return /^gav/.test(arg)?"signaler":"fiches" } return nom==="depots"?"accueil":nom }
+var ONGLETS=[["accueil","Accueil",IC.maison,"#0F558F"],["fiches","Fiches",IC.fiche,"#2F7A80"],["facturer","Facturer",IC.euro,"#0F558F"],["signaler","Signaler",IC.signaler,"#C8304A"],["annuaire","Annuaire",IC.annuaire,"#2F7A80"],["ressources","Ressources",IC.ressources,"#6B5C00"]];
+function onglet(nom,arg){ if(nom==="f"){ return /^gav/.test(arg)?"signaler":"fiches" } if(nom==="parrainage") return "ressources"; return (nom==="depots"||nom==="aide")?"accueil":nom }
 function majNav(r){NAV.innerHTML=ONGLETS.map(function(o){var cur=(r===o[0]);
  return '<a href="#/'+o[0]+'" style="--c:'+o[3]+'"'+(cur?' aria-current="page"':'')+'>'+o[2]+o[1]+'</a>'}).join("")}
 /* ---------- URL de formulaire avec préremplissage (données locales seulement) ---------- */
@@ -204,8 +225,10 @@ vues.accueil=function(){
   tuile("#2F7A80","cartable.png","Fiche du mercredi","Consultations gratuites mineurs, après-midi","#/fiches/mercredi")+
   tuile("#0E7F92","groupe.png","Fiche téléphonique","Permanence téléphonique du GDM","#/fiches/telephone")+
   tuile("#C8304A","parole.png","Signaler","Interpellation et garde à vue (majeur ou mineur)","#/signaler")+
-  tuile("#6B5C00","balance.png","Ressources","Livret de parrainage, guides du CNB, numéro","#/ressources")+
-  tuile("#8A4B00","avocats.png","Autres déclarations","Autres permanences, factures, incidents : application accès au droit","#/fiches")+
+  tuile("#0F558F","balance.png","Facturer","Permanences (CLAJ) et interventions scolaires (CDAD)","#/facturer")+
+  tuile("#2F7A80","groupe.png","Annuaire","Écrire ou appeler les membres du groupe","#/annuaire")+
+  tuile("#8A4B00","avocats.png","Parrainage","Livret à envoyer au terme du parrainage","#/parrainage")+
+  tuile("#6B5C00","balance.png","Ressources","Guides du CNB, documents, accès au droit","#/ressources")+
   tuile("#0F558F","mains.png","Aide et contact","Installer l’application, contacts, confidentialité","#/aide")+'</div>'+
   '<section class="card"><h2>Prochaines échéances</h2><div id="agenda"><p class="petit">Chargement…</p></div><p style="margin:8px 0 0">'+site+ag+'</p></section>'+
   contactGdm()+contactOrdre()+
@@ -228,9 +251,9 @@ vues.fiches=function(arg){
   return '<div class="wrap"><h1>Fiches d’analyse</h1><p>Deux fiches sont propres au Groupe de défense des mineurs. Elles ne servent <b>que</b> pour les cas relevant du GDM.</p><div class="choix">'+
   '<button data-go="#/fiches/mercredi"><span><b>Permanence du mercredi après-midi</b><br><span class="petit">Consultations gratuites mineurs, Cité judiciaire</span></span><span aria-hidden="true">›</span></button>'+
   '<button data-go="#/fiches/telephone"><span><b>Permanence téléphonique</b><br><span class="petit">Une fiche par jour de sollicitations</span></span><span aria-hidden="true">›</span></button></div>'+
-  '<section class="card" style="margin-top:18px"><h2>Autres cas</h2><p>Permanences pénales, gardes à vue, auditions libres, D-Code, interventions scolaires, <b>factures des permanences CDAD</b> et incidents sur un lieu de permanence se déclarent dans l’<b>application générale d’accès au droit</b> du barreau.</p>'+
+  '<section class="card" style="margin-top:18px"><h2>Autres cas</h2><p>Permanences pénales, gardes à vue, auditions libres, D-Code, <b>factures des permanences CDAD</b> autres que scolaires et incidents sur un lieu de permanence se déclarent dans l’<b>application générale d’accès au droit</b> du barreau.</p>'+
   '<a class="btn block" href="'+esc(C.appAccesAuDroit)+'" target="_blank" rel="noopener noreferrer">Ouvrir l’application accès au droit</a></section>'+
-  '<section class="card"><h2>Facturation des permanences du GDM</h2><p>Les permanences du GDM relèvent d’un groupe de défense (CLAJ) : <b>ne facturez pas dans cette application</b>. Envoyez <b>une seule facture annuelle</b>, uniquement par mail, à <a href="mailto:'+esc((C.claj||{}).email)+'">'+esc((C.claj||{}).email)+'</a>, <b>avant le '+esc((C.claj||{}).echeance)+'</b>, à l’ordre de la CARPA Ouest Atlantique Bretagne.</p><p>Seule exception : l’audition libre d’un mineur relève de l’aide juridictionnelle.</p></section>'+
+  '<section class="card"><h2>Facturation</h2><p>Permanences du GDM (CLAJ) et interventions en milieu scolaire (CDAD) : voir l’onglet <a href="#/facturer"><b>Facturer</b></a>.</p></section>'+
   '<div class="note"><b>Toutes les permanences donnent lieu à une fiche d’analyse.</b> Aucun nom, aucune date de naissance, aucun établissement : uniquement des cases à cocher.</div></div>';
 };
 function panneauFiche(cle){
@@ -254,7 +277,7 @@ vues.signaler=function(){
   '<div class="note"><b>Première question :</b> la personne est-elle <b>majeure ou mineure</b> ? Réponse obligatoire : pour un mineur, le signalement est transmis au GDM ; pour un majeur, aux délégataires pénaux du Bâtonnier. Le Bâtonnier est aussi alerté en cas d’urgence, de rappel demandé ou d’atteinte. Rien n’est publié. Documents et modèles : <a href="#/ressources">Ressources</a>.</div></div>';
 };
 vues.ressources=function(){
-  var h='<div class="wrap"><h1 style="color:var(--jaune-f)">Ressources</h1>'+tel()+'<p>Documents et guides utiles, classés par thème.</p><label for="q">Rechercher</label><input id="q" type="search" placeholder="Mot du titre ou de la description" autocomplete="off"><div id="res" style="margin-top:14px"><p class="petit">Chargement…</p></div></div>';
+  var h='<div class="wrap"><h1 style="color:var(--jaune-f)">Ressources</h1>'+tel()+'<p>Documents et guides utiles, classés par thème.</p><label for="q">Rechercher</label><input id="q" type="search" placeholder="Mot du titre ou de la description" autocomplete="off"><div id="res" style="margin-top:14px"><p class="petit">Chargement…</p></div><p class="petit" style="margin-top:14px"><a href="#/aide">Aide, installation et contacts</a></p></div>';
   setTimeout(chargerRes,0); return h;
 };
 var RES=null;
@@ -265,7 +288,7 @@ function chargerRes(){
     RES.categories.forEach(function(c){
       var e=c.entrees.filter(function(x){return !q||(x.titre+" "+x.desc).toLowerCase().indexOf(q)>-1});
       if(!e.length) return;
-      h+='<details'+(q?' open':'')+'><summary>'+esc(c.titre)+' ('+e.length+')</summary><div class="in">'+e.map(function(x){return '<div class="res">'+(x.url?'<a href="'+esc(x.url)+'" target="_blank" rel="noopener noreferrer">'+esc(x.titre)+'</a>':'<b>'+esc(x.titre)+'</b> <span class="badge">lien à venir</span>')+(x.acces==="membres"?' <span class="badge">membres</span>':'')+'<small>'+esc(x.desc)+'</small></div>'}).join("")+'</div></details>';
+      h+='<details'+(q?' open':'')+'><summary>'+esc(c.titre)+' ('+e.length+')</summary><div class="in">'+e.map(function(x){return '<div class="res">'+(x.url?'<a href="'+esc(x.url)+'"'+(x.url.charAt(0)==="#"?'':' target="_blank" rel="noopener noreferrer"')+'>'+esc(x.titre)+'</a>':'<b>'+esc(x.titre)+'</b> <span class="badge">lien à venir</span>')+(x.acces==="membres"?' <span class="badge">membres</span>':'')+'<small>'+esc(x.desc)+'</small></div>'}).join("")+'</div></details>';
     });
     box.innerHTML=h||'<p>Aucun résultat.</p>';
   }
@@ -285,6 +308,92 @@ vues.aide=function(){
   contactGdm()+contactOrdre()+'<h2 style="margin-top:18px">Contacts du GDM</h2><div class="card"><ul class="liste">'+mails+'</ul></div>'+
   '<h2>Confidentialité</h2><div class="card"><ul><li>Ce que vous saisissez dans les formulaires est transmis à <b>Jotform (hébergement européen)</b> pour le GDM ou l’Ordre, selon la mention figurant sur chaque formulaire.</li><li>Votre profil et vos numéros de dépôt restent <b>sur cet appareil</b> ; vous pouvez les effacer.</li><li>Aucun cookie, aucun traceur, aucune police externe.</li><li>Ne saisissez jamais de nom de justiciable.</li></ul></div>'+
   '<p class="petit">'+esc(C.edition)+' · version '+esc(C.version)+'</p></div>';
+};
+
+function aujourdhuiISO(){var d=new Date();return d.getFullYear()+"-"+("0"+(d.getMonth()+1)).slice(-2)+"-"+("0"+d.getDate()).slice(-2)}
+function urlScolaire(iso,tva){
+  var sc=C.scolaire,p=profil(),q=[];
+  function add(k,v){q.push(encodeURIComponent(k).replace(/%5B/g,"[").replace(/%5D/g,"]")+"="+encodeURIComponent(v==null?"":v))}
+  var m=iso.split("-"), fr=m[2]+"/"+m[1]+"/"+m[0];
+  add("avocat[first]",p.prenom||""); add("avocat[last]",p.nom||""); add("emailAvocat",p.email||"");
+  add("ligneId","GDM-S-"+m[0]+m[1]+m[2]+"-"+Math.random().toString(36).slice(2,6).toUpperCase());
+  add("permanenceId",sc.permanenceId); add("permanenceLibelle",sc.libelle); add("typePermanence","scolaire");
+  add("datePermanence",fr); add("heureDebut",""); add("dureeH",sc.dureeH); add("assujettiTva",tva);
+  add("regimePermanence","CDAD"); add("montantTtc",sc.ttc); add("origine","Application GDM");
+  return sc.form+"?"+q.join("&");
+}
+vues.facturer=function(){
+  var c=C.claj||{}, an=new Date().getFullYear();
+  var sujet=encodeURIComponent("Facture annuelle CLAJ – Groupe de défense des mineurs – "+an);
+  var corps=encodeURIComponent("Madame, Monsieur,\n\nVeuillez trouver ci-joint ma facture annuelle des permanences du Groupe de défense des mineurs relevant de la CLAJ pour l’année "+an+" (intitulés, dates et montants).\n\nBien cordialement,\n"+((profil().prenom||"")+" "+(profil().nom||"")).trim());
+  return '<div class="wrap"><h1 style="color:var(--bleu)">Facturer</h1>'+
+  '<p>Deux circuits à ne pas confondre. Au moindre doute sur la nature d’une permanence, consultez le vademecum des permanences (CLIPA) ou le service des permanences de l’Ordre.</p>'+
+  '<div class="fx">'+
+  '<section class="fcol claj" aria-labelledby="fc1"><h3 id="fc1">Permanences de semaine et de week-end, consultations du mercredi<small>Groupe de défense (CLAJ) · convention locale d’aide juridictionnelle</small></h3><ol>'+
+  '<li><div><b>Je tiens la permanence</b><span>Garde à vue, audition libre, audiences, consultations du mercredi.</span></div></li>'+
+  '<li><div><b>Pas de fiche CDAD</b><span>L’Ordre dispose du planning. La fiche d’analyse du GDM (onglet Fiches) reste à remplir.</span></div></li>'+
+  '<li><div><b>Une seule facture annuelle</b><span>Récapitulatif de toutes vos permanences CLAJ de l’année (intitulés, dates, montants). Aucun justificatif à joindre.</span></div></li>'+
+  '<li class="cle"><div><b>Je l’envoie avant le '+esc(c.echeance||"31 janvier")+'</b><span>Uniquement par mail à '+esc(c.email||"")+'. Hors délai : facture non réglée.</span></div></li>'+
+  '<li><div><b>L’Ordre règle</b><span>Indemnisation selon le barème CLAJ du groupe.</span></div></li></ol></section>'+
+  '<section class="fcol cdad" aria-labelledby="fc2"><h3 id="fc2">Interventions en milieu scolaire<small>Accès au droit · payées par le CDAD 35</small></h3><ol>'+
+  '<li><div><b>Je fais l’intervention</b><span>Collège, lycée : une intervention de 2 h.</span></div></li>'+
+  '<li><div><b>Je remplis la fiche d’analyse</b><span>Une fiche par intervention : sans fiche, pas de paiement.</span></div></li>'+
+  '<li><div><b>J’établis ma facture</b><span>216 € TTC par intervention, une seule facture même si vous intervenez à deux. Libellée à la CARPA Ouest Atlantique Bretagne, 11 rue Saint-Louis, 35000 Rennes.</span></div></li>'+
+  '<li class="cle"><div><b>Je l’envoie dans les 3 mois</b><span>Fiche et facture déposées ensemble ; au plus tard le 31 janvier de l’année suivante, au-delà aucun paiement.</span></div></li>'+
+  '<li><div><b>L’Ordre contrôle, paie et refacture</b><span>Contrôle du planning et des plafonds, paiement par la CARPA, refacturation au CDAD tous les deux mois.</span></div></li></ol></section></div>'+
+  '<section class="card"><h2>Intervention en milieu scolaire : déclarer et facturer</h2>'+
+  '<p class="petit" style="margin:0 0 6px">La fiche et la facture se déposent dans le même formulaire que l’application accès au droit : elles alimentent le même tableau que les permanences CDAD. Aucun nom d’élève ni d’enseignant.</p>'+
+  '<label for="sDate">Date de l’intervention</label><input type="date" id="sDate" value="'+aujourdhuiISO()+'" max="'+aujourdhuiISO()+'">'+
+  '<label>Êtes-vous assujetti à la TVA ?</label><div class="chips" id="sTva"><button class="chip" data-v="Oui" aria-pressed="false">Oui</button><button class="chip" data-v="Non" aria-pressed="false">Non</button></div>'+
+  '<p class="petit">Non assujetti : facturez le même montant avec la mention « TVA non applicable, art. 293 B du CGI ».</p>'+
+  (aProfil()?'':'<div class="note attention"><b>Astuce :</b> enregistrez d’abord votre <a href="#/profil">profil</a> pour préremplir le formulaire.</div>')+
+  '<a class="btn block" id="sGo" href="#/facturer" target="_blank" rel="noopener noreferrer">Ouvrir la fiche et déposer ma facture ↗</a><p id="sMsg" class="petit" role="status"></p>'+
+  '<p class="petit">Le formulaire s’ouvre dans un nouvel onglet (charte de l’Ordre). À la fin, notez votre numéro de dépôt. Pour revenir ici, fermez l’onglet.</p></section>'+
+  '<section class="card"><h2>Facture annuelle CLAJ</h2><p class="petit" style="margin:0 0 8px">Un modèle de message s’ouvre dans votre messagerie : joignez votre facture (PDF).</p>'+
+  '<a class="btn block" href="mailto:'+esc(c.email||"")+'?subject='+sujet+'&body='+corps+'">Écrire à la comptabilité de l’Ordre</a>'+
+  '<p class="petit" style="margin:8px 0 0">Exception : l’audition libre d’un mineur relève de l’aide juridictionnelle.</p></section>'+
+  '<div class="note"><b>À retenir.</b> Les permanences CDAD se facturent dans les 3 mois ; les permanences CLAJ une fois par an, avant le '+esc(c.echeance||"31 janvier")+'. Intervention scolaire : 10 prises en charge par le CDAD, les suivantes par le GDM, au même tarif.</div></div>';
+};
+var ANN=null;
+vues.annuaire=function(){
+  setTimeout(chargerAnnuaire,0);
+  var site=C.siteMembres?'<a class="btn sec block" href="'+esc(C.siteMembres)+'" target="_blank" rel="noopener noreferrer">Liste complète sur le site du GDM ↗</a>':'';
+  var ordre=C.siteOrdre?'<a class="btn sec block" style="margin-top:8px" href="'+esc(C.siteOrdre)+'" target="_blank" rel="noopener noreferrer">Site de l’Ordre des avocats de Rennes ↗</a>':'';
+  return '<div class="wrap"><h1 style="color:var(--teal-f)">Annuaire du groupe</h1>'+
+  '<p>Coordonnées professionnelles des membres, déjà publiques sur le site du GDM. Touchez un numéro pour appeler, une adresse pour écrire.</p>'+
+  '<label for="aq">Rechercher</label><input id="aq" type="search" placeholder="Nom, prénom ou ville" autocomplete="off">'+
+  '<div id="ann" style="margin:12px 0"><p class="petit">Chargement…</p></div>'+
+  '<section class="card"><h2>Autres annuaires</h2>'+site+ordre+'</section>'+
+  '<div class="note">Usage strictement professionnel. Dans vos messages, <b>ne mentionnez aucun nom de justiciable</b>. Une coordonnée à corriger ? <a href="mailto:'+esc((C.contactGdm||{}).mail||"")+'?subject='+encodeURIComponent("[Annuaire GDM] Mise à jour")+'">Écrivez au GDM</a>.</div></div>';
+};
+function fmtTel(t){return t.replace(/(\d{2})(?=\d)/g,"$1 ").trim()}
+function chargerAnnuaire(){
+  var box=document.getElementById("ann"); if(!box) return;
+  function aff(){
+    var q=((document.getElementById("aq")||{}).value||"").toLowerCase().trim();
+    var l=ANN.membres.filter(function(m){return !q||(m.prenom+" "+m.nom+" "+(m.adresse||"")+" "+(m.cabinet||"")).toLowerCase().indexOf(q)>-1});
+    box.innerHTML=(l.length?l.map(function(m){
+      var tels=(m.tel||[]).map(function(t){return '<a class="btn" href="tel:+33'+esc(t.slice(1))+'">'+esc(fmtTel(t))+'</a>'}).join("");
+      var mails=(m.mail||[]).slice(0,1).map(function(e){return '<a class="btn sec" href="mailto:'+esc(e)+'">Écrire</a>'}).join("");
+      return '<div class="annu"><div class="nm">Me '+esc(m.prenom)+' '+esc(m.nom)+'</div><div class="ad">'+(m.cabinet?esc(m.cabinet)+' · ':'')+esc(m.adresse||"")+'</div><div class="ac">'+tels+mails+'</div></div>'}).join(""):'<p>Aucun résultat.</p>')+
+      '<p class="petit">'+l.length+' membre'+(l.length>1?'s':'')+' affiché'+(l.length>1?'s':'')+' · liste du '+esc(new Date(ANN.maj).toLocaleDateString("fr-FR"))+'</p>';
+  }
+  function init(){aff();var q=document.getElementById("aq");if(q)q.addEventListener("input",aff)}
+  if(ANN) return init();
+  fetch("annuaire.json",{cache:"no-cache"}).then(function(r){return r.json()}).then(function(j){ANN=j;init()}).catch(function(){box.innerHTML='<div class="note alerte">L’annuaire n’a pas pu être chargé. Vérifiez votre connexion.</div>'});
+}
+vues.parrainage=function(){
+  var g=C.contactGdm||{};
+  return '<div class="wrap"><h1 style="color:var(--peche-f)">Livret de parrainage</h1>'+
+  '<div class="note attention"><b>À envoyer au terme du parrainage.</b> Le parrain remplit et transmet le livret à l’issue de la période de parrainage, pour l’intégration du filleul au groupe.</div>'+
+  '<a class="btn block" href="'+esc(C.parrainageForm)+'" target="_blank" rel="noopener noreferrer">Remplir le livret de fin de parrainage ↗</a>'+
+  '<p class="petit">Le formulaire s’ouvre dans un nouvel onglet. Aucun nom de mineur ni de justiciable.</p>'+
+  '<h2 style="margin-top:16px">Le parrainage en bref</h2>'+
+  '<details><summary>Principe et durée</summary><div class="in"><ul><li>Tout nouveau membre doit être parrainé pour être inscrit sur la liste des avocats du groupe établie par l’Ordre.</li><li>Le parrain est choisi par le candidat parmi les membres du groupe ayant au moins 4 ans d’ancienneté ; le candidat en informe l’un des vice-présidents.</li><li>Le parrainage dure <b>six mois</b>, prolongeable de six mois sur décision du groupe. Pas de désignation pendant cette période.</li><li>Un parrain ne parraine qu’<b>un seul filleul</b> à la fois.</li><li>À l’issue, le parrain soumet l’adhésion du candidat au groupe lors d’une réunion. Le candidat écarté peut, après avoir été entendu, saisir le Bâtonnier.</li></ul></div></details>'+
+  '<details><summary>Ce que le parrain transmet</summary><div class="in"><ul><li>Une information générale sur le groupe, son règlement intérieur, ses réunions et les modalités de désignation et de rétribution.</li><li>La présentation du filleul aux partenaires du groupe (magistrats, greffes, services éducatifs).</li><li>Une relecture de l’ordonnance du 2 février 1945, des articles 375 et suivants du Code civil et des articles 388-1 et suivants, avec un modèle de requête aux fins d’audition de mineur.</li></ul></div></details>'+
+  '<details><summary>Missions à faire découvrir au filleul</summary><div class="in"><p>Avec l’accord préalable des mineurs concernés, le filleul assiste à au moins une mesure de chacune des missions suivantes : mise en examen, audience de cabinet, audience du tribunal pour enfants, audience d’assistance éducative, permanence du mercredi après-midi, intervention en milieu scolaire.</p><p>Le livret recense : juge pour enfants (mise en examen), chambre du conseil, tribunal pour enfants, assistance éducative, permanence du mercredi, rendez-vous mineurs, audition de mineurs, autre.</p></div></details>'+
+  '<details><summary>Le filleul pendant le parrainage</summary><div class="in"><ul><li>Il assiste aux réunions et aux assemblées générales du groupe, dont il est informé par son parrain.</li><li>Trois absences consécutives sans circonstance exceptionnelle entraînent la sanction prévue par la charte (pas de désignation pendant six mois).</li></ul></div></details>'+
+  '<p class="petit">Source : règlement intérieur et charte de parrainage du GDM (guide pratique, juillet 2018). Un doute sur la version en vigueur ? <a href="mailto:'+esc(g.mail||"")+'?subject='+encodeURIComponent("[Application GDM] Parrainage")+'">Écrivez au GDM</a>.</p></div>';
 };
 vues.profil=function(){
   var p=profil();
@@ -327,6 +436,14 @@ function liens(nom){
   V.querySelectorAll("[data-go]").forEach(function(b){b.addEventListener("click",function(){location.hash=b.getAttribute("data-go")})});
   V.querySelectorAll("button[data-type]").forEach(function(b){b.addEventListener("click",function(){})});
   if(nom==="fiches"){var ch=document.getElementById("dates"); if(ch){sessionStorageSet("gdm.date","0");ch.querySelectorAll(".chip").forEach(function(c){c.addEventListener("click",function(){ch.querySelectorAll(".chip").forEach(function(x){x.setAttribute("aria-pressed","false")});c.setAttribute("aria-pressed","true");sessionStorageSet("gdm.date",c.getAttribute("data-d"))})})}}
+  if(nom==="facturer"){
+    var tv="",go=document.getElementById("sGo"),ch2=document.getElementById("sTva"),dt=document.getElementById("sDate"),ms=document.getElementById("sMsg");
+    ch2.querySelectorAll(".chip").forEach(function(c){c.addEventListener("click",function(){ch2.querySelectorAll(".chip").forEach(function(x){x.setAttribute("aria-pressed","false")});c.setAttribute("aria-pressed","true");tv=c.getAttribute("data-v");ms.textContent=""})});
+    go.addEventListener("click",function(e){
+      if(!dt.value||!tv){e.preventDefault();ms.textContent="Indiquez la date et votre régime de TVA.";return}
+      go.setAttribute("href",urlScolaire(dt.value,tv));
+    });
+  }
   if(nom==="profil"){
     document.getElementById("pSave").addEventListener("click",function(){var p={prenom:val("pPrenom"),nom:val("pNom"),email:val("pMail")};var ok=S.set("profil",p);document.getElementById("pMsg").textContent=ok?"Profil enregistré sur cet appareil.":"Impossible d’enregistrer (stockage bloqué par le navigateur)."});
     document.getElementById("pDel").addEventListener("click",function(){if(confirm("Effacer votre profil et vos numéros de dépôt de cet appareil ?")){S.del("profil");S.del("depots");route()}});
