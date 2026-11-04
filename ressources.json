@@ -7,8 +7,8 @@
    "titre": "Groupe de défense des mineurs",
    "entrees": [
     {
-     "titre": "Livret de parrainage du GDM",
-     "desc": "Règles du parrainage et livret de fin de parrainage (à envoyer au terme du parrainage).",
+     "titre": "Parrainage au GDM",
+     "desc": "Conditions du parrainage, déclaration de début et déclaration de fin de parrainage.",
      "url": "#/parrainage",
      "acces": "membres"
     }

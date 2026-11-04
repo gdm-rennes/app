@@ -228,7 +228,7 @@ vues.accueil=function(){
   tuile("#C8304A","parole.png","Signaler","Interpellation et garde à vue (majeur ou mineur)","#/signaler")+
   tuile("#0F558F","balance.png","Facturer","Permanences (CLAJ) et interventions scolaires (CDAD)","#/facturer")+
   tuile("#2F7A80","groupe.png","Annuaire","Écrire ou appeler les membres du groupe","#/annuaire")+
-  tuile("#8A4B00","avocats.png","Parrainage","Livret à envoyer au terme du parrainage","#/parrainage")+
+  tuile("#8A4B00","avocats.png","Parrainage","Déclarations de début et de fin de parrainage","#/parrainage")+
   tuile("#6B5C00","balance.png","Ressources","Guides du CNB, documents, accès au droit","#/ressources")+
   tuile("#0F558F","mains.png","Aide et contact","Installer l’application, contacts, confidentialité","#/aide")+'</div>'+
   '<section class="card"><h2>Prochaines échéances</h2><div id="agenda"><p class="petit">Chargement…</p></div><p style="margin:8px 0 0">'+site+ag+'</p></section>'+
@@ -316,12 +316,14 @@ function aujourdhuiISO(){var d=new Date();return d.getFullYear()+"-"+("0"+(d.get
 function urlScolaire(iso,tva,bin){
   var sc=C.scolaire,p=profil(),q=[];
   function add(k,v){q.push(encodeURIComponent(k).replace(/%5B/g,"[").replace(/%5D/g,"]")+"="+encodeURIComponent(v==null?"":v))}
-  var m=iso.split("-"), fr=m[2]+"/"+m[1]+"/"+m[0];
-  add("avocat[first]",p.prenom||""); add("avocat[last]",p.nom||""); add("emailAvocat",p.email||"");
-  add("ligneId","GDM-S-"+m[0]+m[1]+m[2]+"-"+Math.random().toString(36).slice(2,6).toUpperCase());
-  add("permanenceId",sc.permanenceId); add("permanenceLibelle",sc.libelle); add("typePermanence","scolaire");
-  add("datePermanence",fr); add("heureDebut",""); add("dureeH",sc.dureeH); add("assujettiTva",tva);
-  add("regimePermanence","CDAD"); add("montantTtc",bin?"108.00":sc.ttc); add("origine",bin?"Intervention en binôme":"Application GDM");
+  var m=iso.split("-");
+  add("q4_fullname2[first]",p.prenom||""); add("q4_fullname2[last]",p.nom||""); add("q5_email3",p.email||"");
+  add("q6_datetime4[day]",m[2]); add("q6_datetime4[month]",m[1]); add("q6_datetime4[year]",m[0]);
+  add("q7_number5",sc.dureeH); add("q16_radio14",bin?"Oui":"Non");
+  add("montantTtc",bin?"108.00":sc.ttc);
+  add("q34_textbox32",sc.permanenceId); add("q35_textbox33","scolaire"); add("q36_textbox34","CDAD"); add("q38_textbox36",tva);
+  add("q39_textbox37",bin?"Intervention en binôme":"Application GDM");
+  add("q40_textbox38","GDM-S-"+m[0]+m[1]+m[2]+"-"+Math.random().toString(36).slice(2,6).toUpperCase());
   return sc.form+"?"+q.join("&");
 }
 vues.facturer=function(){
@@ -335,22 +337,22 @@ vues.facturer=function(){
   '<li><div><b>Une seule facture annuelle</b><span>Récapitulatif de toutes vos permanences CLAJ de l’année (intitulés, dates, montants). Aucun justificatif à joindre.</span></div></li>'+
   '<li class="cle"><div><b>Je l’envoie avant le '+esc(c.echeance||"31 janvier")+'</b><span>Uniquement par mail à '+esc(c.email||"")+'. Hors délai : facture non réglée.</span></div></li>'+
   '<li><div><b>L’Ordre règle</b><span>Indemnisation selon le barème CLAJ du groupe.</span></div></li></ol></section>'+
-  '<section class="fcol cdad" aria-labelledby="fc2"><h3 id="fc2">Interventions en milieu scolaire<small>Accès au droit · payées par le CDAD 35</small></h3><ol>'+
+  '<section class="fcol cdad" aria-labelledby="fc2"><h3 id="fc2">Interventions en milieu scolaire<small>Accès au droit · indemnisées par le CDAD 35</small></h3><ol>'+
   '<li><div><b>Je fais l’intervention</b><span>Collège, lycée : une intervention de 2 h.</span></div></li>'+
   '<li><div><b>Je remplis la fiche d’analyse</b><span>Une fiche par intervention : sans fiche, pas de paiement.</span></div></li>'+
   '<li><div><b>J’établis ma facture</b><span>216 € TTC par intervention ; en binôme, chacun facture 108 € TTC. Libellée à la CARPA Ouest Atlantique Bretagne, 11 rue Saint-Louis, 35000 Rennes.</span></div></li>'+
   '<li class="cle"><div><b>Je l’envoie dans les 3 mois</b><span>Fiche et facture déposées ensemble ; au plus tard le 31 janvier de l’année suivante, au-delà aucun paiement.</span></div></li>'+
   '<li><div><b>L’Ordre contrôle, paie et refacture</b><span>Contrôle du planning et des plafonds, paiement par la CARPA, refacturation au CDAD tous les deux mois.</span></div></li></ol></section></div>'+
   '<section class="card"><h2>Intervention en milieu scolaire : déclarer et facturer</h2>'+
-  '<p class="petit" style="margin:0 0 6px">La fiche et la facture se déposent dans le même formulaire que l’application accès au droit : elles alimentent le même tableau que les permanences CDAD. Aucun nom d’élève ni d’enseignant.</p>'+
+  '<p class="petit" style="margin:0 0 6px">La fiche et la facture se déposent dans un même formulaire, qui alimente le même tableau que les permanences CDAD. <b>Même en l’absence de facturation, la fiche statistique reste indispensable.</b> Aucun nom d’élève ni d’enseignant.</p>'+
   '<label for="sDate">Date de l’intervention</label><input type="date" id="sDate" value="'+aujourdhuiISO()+'" max="'+aujourdhuiISO()+'">'+
   '<label>Intervention réalisée</label><div class="chips" id="sBin"><button class="chip" data-v="seul" aria-pressed="true">Seul(e)</button><button class="chip" data-v="binome" aria-pressed="false">En binôme</button></div>'+
-  '<p class="petit">Une seule indemnisation est prévue par intervention : 216 € TTC. En binôme, <b>chacun facture la moitié, soit 108 € TTC</b>.</p>'+
+  '<p class="petit">Une seule indemnisation est prévue par intervention : 216 € TTC. En binôme, l’indemnisation est <b>divisée par 2</b> : chacun remplit son propre formulaire (en indiquant le nom du confrère) et facture <b>108 € TTC</b>.</p>'+
   '<label>Êtes-vous assujetti à la TVA ?</label><div class="chips" id="sTva"><button class="chip" data-v="Oui" aria-pressed="false">Oui</button><button class="chip" data-v="Non" aria-pressed="false">Non</button></div>'+
   '<div class="note"><b>TVA.</b> Les montants du barème CDAD s’entendent <b>TTC</b>. Si vous êtes assujetti à la TVA, le montant TTC s’entend TVA comprise : votre facture fait apparaître le montant HT, le taux et le montant de la TVA (CGI, annexe II, art. 242 nonies A). Si vous n’êtes pas assujetti, facturez le même montant avec la mention « TVA non applicable, art. 293 B du CGI ».</div>'+
   (aProfil()?'':'<div class="note attention"><b>Astuce :</b> enregistrez d’abord votre <a href="#/profil">profil</a> pour préremplir le formulaire.</div>')+
   '<a class="btn block" id="sGo" href="#/facturer" target="_blank" rel="noopener noreferrer">Ouvrir la fiche et déposer ma facture ↗</a><p id="sMsg" class="petit" role="status"></p>'+
-  '<p class="petit">Le formulaire s’ouvre dans un nouvel onglet (charte de l’Ordre). À la fin, notez votre numéro de dépôt. Pour revenir ici, fermez l’onglet.</p></section>'+
+  '<p class="petit">Le formulaire s’ouvre dans un nouvel onglet. À la fin, notez votre numéro de dépôt. Pour revenir ici, fermez l’onglet.</p></section>'+
   '<section class="card"><h2>Montants CLAJ du GDM</h2><ul class="liste"><li><span><b>Permanence de semaine ou de week-end</b><br><span class="petit">par jour de permanence</span></span><b>'+eur(M.jour)+' HT</b></li><li><span><b>Consultation du mercredi après-midi</b><br><span class="petit">par consultation</span></span><b>'+eur(M.mercredi)+' HT</b></li></ul>'+
   '<p class="petit" style="margin:8px 0 0">Montants dus qu’il y ait eu ou non intervention (circulaire du Bâtonnier du 02/01/2025). TVA : si vous êtes assujetti, ajoutez-la à votre facture ; sinon, mention « TVA non applicable, art. 293 B du CGI ».</p></section>'+
   '<section class="card"><h2>Mon récapitulatif CLAJ</h2><p class="petit" style="margin:0 0 6px">Calculez le total de votre facture annuelle. Rien n’est enregistré ni envoyé : vous le reprenez dans votre mail.</p>'+
@@ -391,17 +393,19 @@ function chargerAnnuaire(){
   fetch("annuaire.json",{cache:"no-cache"}).then(function(r){return r.json()}).then(function(j){ANN=j;init()}).catch(function(){box.innerHTML='<div class="note alerte">L’annuaire n’a pas pu être chargé. Vérifiez votre connexion.</div>'});
 }
 vues.parrainage=function(){
-  var g=C.contactGdm||{};
-  return '<div class="wrap"><h1 style="color:var(--peche-f)">Livret de parrainage</h1>'+
-  '<div class="note attention"><b>À envoyer au terme du parrainage.</b> Le parrain remplit et transmet le livret à l’issue de la période de parrainage, pour l’intégration du filleul au groupe.</div>'+
-  '<a class="btn block" href="'+esc(C.parrainageForm)+'" target="_blank" rel="noopener noreferrer">Remplir le livret de fin de parrainage ↗</a>'+
-  '<p class="petit">Le formulaire s’ouvre dans un nouvel onglet. Aucun nom de mineur ni de justiciable.</p>'+
-  '<h2 style="margin-top:16px">Le parrainage en bref</h2>'+
-  '<details><summary>Principe et durée</summary><div class="in"><ul><li>Tout nouveau membre doit être parrainé pour être inscrit sur la liste des avocats du groupe établie par l’Ordre.</li><li>Le parrain est choisi par le candidat parmi les membres du groupe ayant au moins 4 ans d’ancienneté ; le candidat en informe l’un des vice-présidents.</li><li>Le parrainage dure <b>six mois</b>, prolongeable de six mois sur décision du groupe. Pas de désignation pendant cette période.</li><li>Un parrain ne parraine qu’<b>un seul filleul</b> à la fois.</li><li>À l’issue, le parrain soumet l’adhésion du candidat au groupe lors d’une réunion. Le candidat écarté peut, après avoir été entendu, saisir le Bâtonnier.</li></ul></div></details>'+
-  '<details><summary>Ce que le parrain transmet</summary><div class="in"><ul><li>Une information générale sur le groupe, son règlement intérieur, ses réunions et les modalités de désignation et de rétribution.</li><li>La présentation du filleul aux partenaires du groupe (magistrats, greffes, services éducatifs).</li><li>Une relecture de l’ordonnance du 2 février 1945, des articles 375 et suivants du Code civil et des articles 388-1 et suivants, avec un modèle de requête aux fins d’audition de mineur.</li></ul></div></details>'+
-  '<details><summary>Missions à faire découvrir au filleul</summary><div class="in"><p>Avec l’accord préalable des mineurs concernés, le filleul assiste à au moins une mesure de chacune des missions suivantes : mise en examen, audience de cabinet, audience du tribunal pour enfants, audience d’assistance éducative, permanence du mercredi après-midi, intervention en milieu scolaire.</p><p>Le livret recense : juge pour enfants (mise en examen), chambre du conseil, tribunal pour enfants, assistance éducative, permanence du mercredi, rendez-vous mineurs, audition de mineurs, autre.</p></div></details>'+
-  '<details><summary>Le filleul pendant le parrainage</summary><div class="in"><ul><li>Il assiste aux réunions et aux assemblées générales du groupe, dont il est informé par son parrain.</li><li>Trois absences consécutives sans circonstance exceptionnelle entraînent la sanction prévue par la charte (pas de désignation pendant six mois).</li></ul></div></details>'+
-  '<p class="petit">Source : règlement intérieur et charte de parrainage du GDM (guide pratique, juillet 2018). Un doute sur la version en vigueur ? <a href="mailto:'+esc(g.mail||"")+'?subject='+encodeURIComponent("[Application GDM] Parrainage")+'">Écrivez au GDM</a>.</p></div>';
+  var g=C.contactGdm||{mail:""};
+  return '<div class="wrap"><h1 style="color:var(--peche-f)">Parrainage</h1>'+
+  '<p>Tout nouveau membre doit être parrainé pour être inscrit sur la liste des avocats du groupe établie par l’Ordre. Le parrain déclare le <b>début</b> du parrainage, puis sa <b>fin</b>.</p>'+
+  '<div class="fx"><section class="fcol cdad"><h3>Déclaration de début de parrainage<small>À remplir par le parrain, au début du parrainage</small></h3><p class="petit" style="margin:0 0 8px">Parrain, filleul, date de début, engagements du parrain.</p><a class="btn block" href="'+esc(C.parrainageDebut)+'" target="_blank" rel="noopener noreferrer">Remplir la déclaration de début ↗</a></section>'+
+  '<section class="fcol claj"><h3>Déclaration de fin de parrainage<small>À remplir par le parrain, au terme du parrainage</small></h3><p class="petit" style="margin:0 0 8px">Missions suivies par le filleul, observations, demande éventuelle de prolongation.</p><a class="btn block" href="'+esc(C.parrainageFin)+'" target="_blank" rel="noopener noreferrer">Remplir la déclaration de fin ↗</a></section></div>'+
+  '<p class="petit">Les formulaires s’ouvrent dans un nouvel onglet. Aucun nom de mineur ni de justiciable.</p>'+
+  '<h2 style="margin-top:16px">Les étapes</h2><div class="card"><ol><li>Le candidat choisit son parrain parmi les membres du groupe et en informe <b>par écrit</b> l’un au moins des vice-présidents.</li><li>Le parrain remplit la <b>déclaration de début de parrainage</b>.</li><li>Pendant six mois, le filleul se forme auprès de son parrain, assiste aux réunions et aux assemblées générales. Il n’est pas désigné pendant cette période.</li><li>Au terme du parrainage, le parrain remplit la <b>déclaration de fin de parrainage</b> et soumet aux vice-présidents la candidature de son filleul, avec le règlement intérieur signé par le filleul.</li></ol></div>'+
+  '<h2>Conditions</h2>'+
+  '<details open><summary>Être parrain</summary><div class="in"><ul><li>Être membre du groupe depuis au moins <b>4 ans</b>.</li><li>Ne parrainer qu’<b>un seul filleul</b> à la fois, jusqu’au terme de sa période de parrainage.</li><li>Transmettre au filleul les informations pratiques et théoriques : fonctionnement du groupe, règlement intérieur, date de la prochaine réunion, modalités de désignation et de rétribution, présentation aux partenaires (magistrats, greffes, services éducatifs).</li><li>Permettre au filleul d’assister, avec l’accord préalable des mineurs concernés, aux rendez-vous, aux audiences et aux permanences.</li></ul></div></details>'+
+  '<details open><summary>Être candidat à l’intégration (filleul)</summary><div class="in"><ul><li>Être avocat inscrit au barreau de Rennes, puis être inscrit sur la liste établie par l’Ordre des avocats du groupe de défense des mineurs, ce qui suppose d’être parrainé.</li><li>Choisir son parrain et en informer par écrit l’un au moins des vice-présidents.</li><li>Suivre un parrainage de <b>six mois</b>, prolongeable de six mois sur décision du groupe.</li><li>Assister aux réunions et aux assemblées générales du groupe, dont le parrain l’informe.</li><li>Signer le règlement intérieur, qui accompagne la candidature.</li><li>Acquitter la cotisation l’année de l’inscription, au prorata du temps (statuts : 40 € par an).</li></ul></div></details>'+
+  '<details><summary>À l’issue du parrainage</summary><div class="in"><p>Le parrain soumet la candidature de son filleul aux vice-présidents, avec le règlement intérieur signé et la fiche de suivi renseignée (déclaration de fin de parrainage). En cas de refus d’intégration, le candidat peut, après avoir été entendu, saisir le Bâtonnier.</p></div></details>'+
+  '<details><summary>Missions à faire découvrir au filleul</summary><div class="in"><p>Au moins une mesure de chacune des missions suivantes, avec l’accord préalable des mineurs concernés : mise en examen, audience de cabinet, audience du tribunal pour enfants, audience d’assistance éducative, permanence de consultations du mercredi après-midi, intervention en milieu scolaire.</p><p>La déclaration de fin recense : mise en examen, audience de cabinet du juge des enfants, audience de culpabilité ou sur la sanction (tribunal pour enfants, CJPM), assistance éducative, consultations du mercredi, auditions libres ou gardes à vue, interventions en milieu scolaire, rendez-vous avec un mineur, autre.</p></div></details>'+
+  '<p class="petit">Source : statuts et règlement intérieur du GDM (septembre 2024), art. II du règlement intérieur ; charte de parrainage. Un doute ? <a href="mailto:'+esc(g.mail||"")+'?subject='+encodeURIComponent("[Application GDM] Parrainage")+'">Écrivez au GDM</a>.</p></div>';
 };
 vues.profil=function(){
   var p=profil();

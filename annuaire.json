@@ -1,13 +1,28 @@
 {
- "maj": "2026-11-03",
- "source": "Page publique « Nos membres » du site du GDM (groupe-defense-mineur.fr/nos-membres) et fichier de coordonnées du GDM",
+ "maj": "2026-11-04",
+ "source": "Liste des membres : fichier d'annuaire du GDM (mise à jour du 22/09/2026), hors filleuls. Coordonnées : fiches publiques de l'annuaire de l'Ordre et du site du GDM.",
  "membres": [
   {
-   "prenom": "Marie-Line",
-   "nom": "ASSELIN",
-   "adresse": "",
-   "mail": [],
-   "tel": []
+   "prenom": "Clélia",
+   "nom": "ABRAS",
+   "adresse": "45 boulevard de la Tour d'Auvergne 35000 RENNES",
+   "mail": [
+    "cabinet@abrasclelia-avocat.fr"
+   ],
+   "tel": [
+    "0671815139"
+   ]
+  },
+  {
+   "prenom": "Edwige",
+   "nom": "ANFRAY",
+   "adresse": "9 rue Louis Kerautret Botmel, Centre d'affaires Athéa 35000 RENNES",
+   "mail": [
+    "edwige.anfray@avocat-anfray.fr"
+   ],
+   "tel": [
+    "0629699240"
+   ]
   },
   {
    "prenom": "Isabelle",
@@ -42,6 +57,17 @@
    "adresse": "",
    "mail": [],
    "tel": []
+  },
+  {
+   "prenom": "Emilie",
+   "nom": "BELLENGER",
+   "adresse": "12 quai Duguay Trouin 35000 RENNES",
+   "mail": [
+    "emilie.bellenger.avocat@live.fr"
+   ],
+   "tel": [
+    "0222444030"
+   ]
   },
   {
    "prenom": "Marie-Gaëlle",
@@ -135,22 +161,16 @@
    ]
   },
   {
-   "prenom": "Sylvie",
-   "nom": "CAVALOC-LE GAL",
-   "adresse": "ZA Le Chêne Joli, 28 Avenue du Chêne Joli, 35530 NOYAL SUR VILAINE",
+   "prenom": "Noémie",
+   "nom": "CHARTON",
+   "adresse": "8 rue du Sapeur Michel Jouan 35000 RENNES",
    "mail": [
-    "sylviecavaloclegal@gmail.com"
+    "charton@cabinet-acdc.fr"
    ],
    "tel": [
-    "0683564132"
-   ]
-  },
-  {
-   "prenom": "Marie",
-   "nom": "CAZIN",
-   "adresse": "",
-   "mail": [],
-   "tel": []
+    "0624886621"
+   ],
+   "cabinet": "Cabinet ACDC"
   },
   {
    "prenom": "Olivier",
@@ -160,15 +180,25 @@
    "tel": []
   },
   {
-   "prenom": "Clémence",
-   "nom": "COLIN SOUBRENIE",
-   "adresse": "2 avenue Charles Tillon 35000 RENNES",
+   "prenom": "Agnès",
+   "nom": "COETMEUR",
+   "adresse": "4 rue Jean Jaurès 35000 RENNES",
    "mail": [
-    "contact@colinsoubrenie-avocate.com"
+    "agnes.coetmeur-avocat@orange.fr"
    ],
    "tel": [
-    "0230960687",
-    "0784814702"
+    "0299842700"
+   ]
+  },
+  {
+   "prenom": "Maud",
+   "nom": "COUSIN",
+   "adresse": "4 quai de Richemont 35000 RENNES",
+   "mail": [
+    "contact@maudcousinavocat.fr"
+   ],
+   "tel": [
+    "0981054239"
    ]
   },
   {
@@ -180,17 +210,6 @@
    ],
    "tel": [
     "0764530575"
-   ]
-  },
-  {
-   "prenom": "Ludovic",
-   "nom": "DEMONT",
-   "adresse": "14 rue des Feuteries 35300 FOUGERES",
-   "mail": [
-    "cabinet@demont-avocat.fr"
-   ],
-   "tel": [
-    "0299997637"
    ]
   },
   {
@@ -281,6 +300,17 @@
    "tel": []
   },
   {
+   "prenom": "Marine",
+   "nom": "FLICHY",
+   "adresse": "3A rue du 10ème Régiment d'Artillerie 35000 RENNES",
+   "mail": [
+    "marine.flichy@avocat.fr"
+   ],
+   "tel": [
+    "0668416935"
+   ]
+  },
+  {
    "prenom": "Marion",
    "nom": "GAREL",
    "adresse": "29 rue du Puits MAUGER 35000 RENNES",
@@ -297,6 +327,29 @@
    "adresse": "",
    "mail": [],
    "tel": []
+  },
+  {
+   "prenom": "Gaëlle",
+   "nom": "GIRARDON",
+   "adresse": "19 A rue de Chatillon 35000 RENNES",
+   "mail": [
+    "g.girardon@telma-avocats.fr"
+   ],
+   "tel": [
+    "0222669470"
+   ],
+   "cabinet": "TELMA AVOCATS"
+  },
+  {
+   "prenom": "Morgane",
+   "nom": "GODREUL",
+   "adresse": "23 avenue Aristide Briand 35000 RENNES",
+   "mail": [
+    "morgane.godreul@avocat.fr"
+   ],
+   "tel": [
+    "0299367171"
+   ]
   },
   {
    "prenom": "Marine",
@@ -337,6 +390,17 @@
    ]
   },
   {
+   "prenom": "Gaëlle",
+   "nom": "HENNO",
+   "adresse": "35 avenue Aristide Briand 35000 RENNES",
+   "mail": [
+    "gaelle.henno@avocat.fr"
+   ],
+   "tel": [
+    "0779273952"
+   ]
+  },
+  {
    "prenom": "Adeline",
    "nom": "HERVE",
    "adresse": "57 Quai de la Prévalaye 35000 RENNES",
@@ -356,17 +420,6 @@
    ],
    "tel": [
     "0603491797"
-   ]
-  },
-  {
-   "prenom": "Marion",
-   "nom": "JAFFRENNOU",
-   "adresse": "Immeuble le Papyrus, 29 rue de Lorient, 35000 RENNES",
-   "mail": [
-    "marion.jaffrennou@avocat.fr"
-   ],
-   "tel": [
-    "0638221422"
    ]
   },
   {
@@ -530,6 +583,17 @@
    ]
   },
   {
+   "prenom": "Héloïse",
+   "nom": "MARTIGNY",
+   "adresse": "6 cours Raphaël Binet 35000 RENNES",
+   "mail": [
+    "heloise.martigny@avocat.fr"
+   ],
+   "tel": [
+    "0299781078"
+   ]
+  },
+  {
    "prenom": "Sandrine",
    "nom": "MARTIN",
    "adresse": "",
@@ -537,14 +601,37 @@
    "tel": []
   },
   {
+   "prenom": "Dimitra",
+   "nom": "MARY",
+   "adresse": "29 avenue Jean Janvier 35000 RENNES",
+   "mail": [
+    "dimitra.mary@avocat.fr"
+   ],
+   "tel": [
+    "0223508485"
+   ]
+  },
+  {
    "prenom": "Benjamin",
-   "nom": "MAYZAUD",
-   "adresse": "",
+   "nom": "MAYZAUD VISSEAUX",
+   "adresse": "1 place Honoré Commeurec 35000 RENNES",
    "mail": [
     "benjamin.mayzaud@pluriel-avocat.com"
    ],
    "tel": [
-    "0764076609"
+    "0299659612"
+   ],
+   "cabinet": "SELARL PLURIEL-AVOCAT"
+  },
+  {
+   "prenom": "Sarahswati",
+   "nom": "MAZO",
+   "adresse": "2 rue de la Paillette 35000 RENNES",
+   "mail": [
+    "sarahswati.mazo@avocat.fr"
+   ],
+   "tel": [
+    "0603862450"
    ]
   },
   {
@@ -600,6 +687,17 @@
    "adresse": "",
    "mail": [],
    "tel": []
+  },
+  {
+   "prenom": "Anne-Louise",
+   "nom": "NICOLAS-LAURENT",
+   "adresse": "1 square René Coty 35000 RENNES",
+   "mail": [
+    "al.nicolaslaurent.avocat@gmail.com"
+   ],
+   "tel": [
+    "0619114296"
+   ]
   },
   {
    "prenom": "Amélie",
@@ -693,6 +791,17 @@
    ]
   },
   {
+   "prenom": "Gauthier",
+   "nom": "ROLANDIN",
+   "adresse": "5 allée Ermengarde d'Anjou, ZA Atalante Champeaux, CS 40824 35108 RENNES CEDEX 3",
+   "mail": [
+    "contact@rolandin-avocat.fr"
+   ],
+   "tel": [
+    "0670549079"
+   ]
+  },
+  {
    "prenom": "Véronique",
    "nom": "SAUTEJEAU-DENIS",
    "adresse": "1 place du Maréchal Juin 35000 RENNES",
@@ -743,6 +852,28 @@
    ],
    "tel": [
     "0674047051"
+   ]
+  },
+  {
+   "prenom": "Ianis",
+   "nom": "XENIDIS",
+   "adresse": "35 avenue Aristide Briand 35000 RENNES",
+   "mail": [
+    "cabinet@xenidis-avocat.fr"
+   ],
+   "tel": [
+    "0699065536"
+   ]
+  },
+  {
+   "prenom": "Marjolaine",
+   "nom": "YGER",
+   "adresse": "74 F rue de Paris 35000 RENNES",
+   "mail": [
+    "cabinet@yger-avocat.fr"
+   ],
+   "tel": [
+    "0669306098"
    ]
   }
  ]
