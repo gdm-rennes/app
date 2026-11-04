@@ -216,10 +216,10 @@ function tel(){
 }
 vues.accueil=function(){
   var site=C.siteWeb?'<a class="btn sec" style="margin:4px 8px 4px 0" href="'+esc(C.siteWeb)+'" target="_blank" rel="noopener noreferrer">Site internet du GDM</a>':'';
+  var li=C.linkedin?'<a class="btn sec" style="margin:4px 8px 4px 0" href="'+esc(C.linkedin)+'" target="_blank" rel="noopener noreferrer">LinkedIn du GDM</a>':'';
   var ag=C.agendaUrl?'<a class="btn sec" style="margin:4px 0" href="'+esc(C.agendaUrl)+'" target="_blank" rel="noopener noreferrer">Ouvrir l’agenda complet</a>':'';
   setTimeout(chargerAgenda,0);
-  return '<div class="wrap"><section class="hero"><h1>Bienvenue</h1>'+
-  '<p style="margin:0">Application des avocats du Groupe de défense des mineurs : remplir les <b>fiches d’analyse</b> de vos permanences, <b>signaler</b> au Bâtonnier, retrouver les <b>ressources</b> et les prochaines échéances. Sur téléphone comme sur ordinateur.</p></section>'+
+  return '<div class="wrap">'+
   tel()+
   (aProfil()?'':'<div class="note attention"><b>Gagnez du temps :</b> enregistrez votre nom et votre e-mail pour préremplir les formulaires. Ils restent sur cet appareil. <a href="#/profil"><b>Mon profil</b></a></div>')+
   '<h2>Que souhaitez-vous faire ?</h2><div class="grid">'+
@@ -231,7 +231,7 @@ vues.accueil=function(){
   tuile("#8A4B00","avocats.png","Parrainage","Déclarations de début et de fin de parrainage","#/parrainage")+
   tuile("#6B5C00","balance.png","Ressources","Guides du CNB, documents, accès au droit","#/ressources")+
   tuile("#0F558F","mains.png","Aide et contact","Installer l’application, contacts, confidentialité","#/aide")+'</div>'+
-  '<section class="card"><h2>Prochaines échéances</h2><div id="agenda"><p class="petit">Chargement…</p></div><p style="margin:8px 0 0">'+site+ag+'</p></section>'+
+  '<section class="card"><h2>Prochaines échéances</h2><div id="agenda"><p class="petit">Chargement…</p></div><p style="margin:8px 0 0">'+site+li+ag+'</p></section>'+
   contactGdm()+contactOrdre()+
   '<section class="card"><h2>Comment ça marche ?</h2><ol class="steps"><li><div><b>Choisissez la démarche</b><br><span class="petit">Touchez une tuile ci-dessus.</span></div></li>'+
   '<li><div><b>Remplissez le formulaire</b><br><span class="petit">Une seule page à dérouler, des cases à cocher. Vos nom et e-mail sont préremplis.</span></div></li>'+
@@ -244,7 +244,7 @@ function chargerAgenda(){
   fetch("agenda.json",{cache:"no-cache"}).then(function(r){return r.json()}).then(function(j){
     var now=new Date(); now.setHours(0,0,0,0);
     var e=(j.echeances||[]).filter(function(x){return new Date(x.date)>=now}).sort(function(a,b){return new Date(a.date)-new Date(b.date)}).slice(0,6);
-    box.innerHTML=e.length?'<ul class="liste">'+e.map(function(x){var d=new Date(x.date);return '<li><span><b>'+esc(x.titre)+'</b><br><span class="petit">'+esc(d.toLocaleDateString("fr-FR",{weekday:"long",day:"numeric",month:"long",year:"numeric"}))+(x.heure?" · "+esc(x.heure):"")+(x.lieu?" · "+esc(x.lieu):"")+'</span></span><span class="badge">'+esc(x.type||"")+'</span></li>'}).join("")+'</ul>':'<p>Aucune échéance publiée pour le moment.</p>';
+    box.innerHTML=e.length?'<ul class="liste">'+e.map(function(x){var d=new Date(x.date);return '<li><span><b>'+esc(x.titre)+'</b><br><span class="petit">'+esc(d.toLocaleDateString("fr-FR",{weekday:"long",day:"numeric",month:"long",year:"numeric"}))+(x.heure?" · "+esc(x.heure):"")+(x.lieu?" · "+esc(x.lieu):"")+(x.lien&&/^https:\/\//.test(x.lien)?' · <a href="'+esc(x.lien)+'" target="_blank" rel="noopener noreferrer">Programme et inscription ↗</a>':'')+'</span></span><span class="badge">'+esc(x.type||"")+'</span></li>'}).join("")+'</ul>':'<p>Aucune échéance publiée pour le moment.</p>';
   }).catch(function(){box.innerHTML='<p>L’agenda n’a pas pu être chargé.</p>'});
 }
 vues.fiches=function(arg){
@@ -333,7 +333,7 @@ vues.facturer=function(){
   '<div class="fx">'+
   '<section class="fcol claj" aria-labelledby="fc1"><h3 id="fc1">Permanences de semaine et de week-end, consultations du mercredi<small>Groupe de défense (CLAJ) · convention locale d’aide juridictionnelle</small></h3><ol>'+
   '<li><div><b>Je tiens la permanence</b><span>Permanence de semaine ou de week-end, consultation du mercredi après-midi.</span></div></li>'+
-  '<li><div><b>Pas de fiche CDAD</b><span>L’Ordre dispose du planning. La fiche d’analyse du GDM (onglet Fiches) reste à remplir.</span></div></li>'+
+  '<li><div><b>Je remplis la fiche d’analyse du GDM</b><span>Onglet Fiches : indispensable, même sans fiche CDAD ni facture à joindre.</span></div></li>'+
   '<li><div><b>Une seule facture annuelle</b><span>Récapitulatif de toutes vos permanences CLAJ de l’année (intitulés, dates, montants). Aucun justificatif à joindre.</span></div></li>'+
   '<li class="cle"><div><b>Je l’envoie avant le '+esc(c.echeance||"31 janvier")+'</b><span>Uniquement par mail à '+esc(c.email||"")+'. Hors délai : facture non réglée.</span></div></li>'+
   '<li><div><b>L’Ordre règle</b><span>Indemnisation selon le barème CLAJ du groupe.</span></div></li></ol></section>'+

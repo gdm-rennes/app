@@ -1,5 +1,14 @@
 {
-  "maj": "2026-10-27",
-  "note": "À tenir à jour par le bureau du GDM. Une ligne par échéance : date au format AAAA-MM-JJ, type = Réunion, Formation, AG ou Autre. Seules les échéances à venir s'affichent.",
-  "echeances": []
+ "maj": "2026-11-04",
+ "note": "À tenir à jour par le bureau du GDM. Une ligne par échéance : date au format AAAA-MM-JJ, type = Réunion, Formation, AG ou Autre. Seules les échéances à venir s'affichent. Champ facultatif « lien » (https) : affiche « Programme et inscription ».",
+ "echeances": [
+  {
+   "date": "2026-11-27",
+   "type": "Formation",
+   "titre": "Perfectionnement sur l’intervention de l’avocat du mineur en assistance éducative : audience et suivi",
+   "heure": "13 h 30 - 16 h 30",
+   "lieu": "Cité judiciaire de Rennes",
+   "lien": "https://edago.fr/fiche-formation/?id_evenement=28514"
+  }
+ ]
 }

@@ -5,7 +5,7 @@
    puis augmenter "version" (cela force la mise à jour sur les téléphones).
    ===================================================================== */
 window.GDM_CONFIG = {
-  version: "5.3.0",
+  version: "5.3.1",
   edition: "Édition novembre 2026 (v5)",
   urlApplication: "https://gdm-rennes-app.pages.dev",
 
@@ -13,6 +13,7 @@ window.GDM_CONFIG = {
   telPermanence: "06 95 53 18 63",   // numéro de la permanence téléphonique du GDM
   telPermanenceInfo: "7 jours sur 7",   // précision affichée sous le numéro
   siteWeb: "https://groupe-defense-mineur.fr",   // site internet du GDM
+  linkedin: "https://www.linkedin.com/in/d%C3%A9fensedesmineurs-barreau-de-rennes-28098b302",   // page LinkedIn du GDM
   siteMembres: "https://groupe-defense-mineur.fr/nos-membres/",   // liste publique des membres
   siteOrdre: "https://www.ordre-avocats-rennes.fr/annuaire",   // site de l'Ordre (annuaire des avocats)
   agendaUrl: "",              // lien vers l'agenda partagé (Outlook, Google Agenda…), facultatif
