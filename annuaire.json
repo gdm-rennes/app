@@ -1,6 +1,6 @@
 {
- "maj": "2026-11-04",
- "source": "Liste des membres : fichier d'annuaire du GDM (mise à jour du 22/09/2026), hors filleuls. Coordonnées : fiches publiques de l'annuaire de l'Ordre et du site du GDM.",
+ "maj": "2026-11-05",
+ "source": "Liste des membres : fichier d'annuaire du GDM (mise à jour du 22/09/2026), hors filleuls. Coordonnées : annuaire public de l'Ordre des avocats du barreau de Rennes (relevé du 05/11/2026).",
  "membres": [
   {
    "prenom": "Clélia",
@@ -16,7 +16,7 @@
   {
    "prenom": "Edwige",
    "nom": "ANFRAY",
-   "adresse": "9 rue Louis Kerautret Botmel, Centre d'affaires Athéa 35000 RENNES",
+   "adresse": "9 rue Louis Kerautret Botmel - Centre d'affaires Athéa 35000 RENNES",
    "mail": [
     "edwige.anfray@avocat-anfray.fr"
    ],
@@ -28,7 +28,9 @@
    "prenom": "Isabelle",
    "nom": "BAGOT",
    "adresse": "15 rue du Puits Mauger 35000 RENNES",
-   "mail": [],
+   "mail": [
+    "isabellebagot-avocat@wanadoo.fr"
+   ],
    "tel": [
     "0299304139"
    ]
@@ -36,9 +38,13 @@
   {
    "prenom": "Jehanne",
    "nom": "BARGINE",
-   "adresse": "",
-   "mail": [],
-   "tel": []
+   "adresse": "2 Rue Michel Gérard - Le Madison Parc BP 10232 35202 RENNES CEDEX 2",
+   "mail": [
+    "jehanne.bargine@avocat.fr"
+   ],
+   "tel": [
+    "0299784512"
+   ]
   },
   {
    "prenom": "Sabrina",
@@ -49,14 +55,19 @@
    ],
    "tel": [
     "0223251435"
-   ]
+   ],
+   "cabinet": "BAUDET KIBGE Avocats Associés"
   },
   {
    "prenom": "Juliette",
    "nom": "BEIGELMAN",
-   "adresse": "",
-   "mail": [],
-   "tel": []
+   "adresse": "8 rue du Sapeur Michel Jouan - 3ème étage 35000 RENNES",
+   "mail": [
+    "contact@jbeigelman-avocate.com"
+   ],
+   "tel": [
+    "0761051508"
+   ]
   },
   {
    "prenom": "Emilie",
@@ -83,30 +94,37 @@
   {
    "prenom": "Natacha",
    "nom": "BERNARD",
-   "adresse": "",
-   "mail": [],
-   "tel": []
+   "adresse": "7 rue Jean Macé 35700 RENNES",
+   "mail": [
+    "natachabernard.avocat@orange.fr"
+   ],
+   "tel": [
+    "0981113510"
+   ]
   },
   {
    "prenom": "Maroussia",
    "nom": "BILLARD",
-   "adresse": "",
+   "adresse": "29 avenue Jean Janvier 35000 RENNES",
    "mail": [
     "billard@scpcabs.com"
    ],
-   "tel": []
+   "tel": [
+    "0223508485"
+   ],
+   "cabinet": "CABS"
   },
   {
    "prenom": "Marie",
    "nom": "BLANDIN",
-   "cabinet": "Cabinet Alba Legis",
-   "adresse": "4 Avenue Charles et Raymonde Tillon 35000 RENNES",
+   "adresse": "4 avenue Charles Tillon - CS 94038 35040 RENNES CEDEX",
    "mail": [
     "cabinet@albalegis.fr"
    ],
    "tel": [
     "0299593249"
-   ]
+   ],
+   "cabinet": "ALBA LEGIS"
   },
   {
    "prenom": "Nolvenn",
@@ -122,37 +140,41 @@
   {
    "prenom": "Solène",
    "nom": "BOURROUILLOU",
-   "adresse": "9bis rue de Lorient, 35000 RENNES",
+   "adresse": "9 bis rue de Lorient 35000 RENNES",
    "mail": [
-    "avocats@scpjollybourrouillou.com"
+    "sbourrouillou.avocat@orange.fr"
    ],
    "tel": [
     "0986358730"
-   ]
+   ],
+   "cabinet": "JOLLY BOURROUILLOU"
   },
   {
    "prenom": "Philippe",
    "nom": "BREUIL",
-   "adresse": "",
-   "mail": [],
-   "tel": []
+   "adresse": "8 rue du Sapeur Michel Jouan 35000 RENNES",
+   "mail": [
+    "philippe.breuil@avocat.fr"
+   ],
+   "tel": [
+    "0624863447"
+   ]
   },
   {
    "prenom": "Delphine",
    "nom": "CARO",
    "adresse": "1 place Maréchal Juin 35000 RENNES",
    "mail": [
-    "dcaro@askavocats.fr"
+    "dcaro@ASKavocats.fr"
    ],
    "tel": [
-    "0299632685",
-    "0610347408"
+    "0299632685"
    ]
   },
   {
    "prenom": "Emmanuel",
    "nom": "CASTRES",
-   "adresse": "9 Square du Général Koenig 35000 RENNES",
+   "adresse": "9 place Général Koënig 35000 RENNES",
    "mail": [
     "ecastres.avocat@aol.fr"
    ],
@@ -163,21 +185,24 @@
   {
    "prenom": "Noémie",
    "nom": "CHARTON",
-   "adresse": "8 rue du Sapeur Michel Jouan 35000 RENNES",
+   "adresse": "8 rue Sapeur Michel Jouan 35000 RENNES",
    "mail": [
     "charton@cabinet-acdc.fr"
    ],
    "tel": [
     "0624886621"
-   ],
-   "cabinet": "Cabinet ACDC"
+   ]
   },
   {
    "prenom": "Olivier",
    "nom": "CHAUVEL",
-   "adresse": "",
-   "mail": [],
-   "tel": []
+   "adresse": "6 rue Edith Cavell 35000 RENNES",
+   "mail": [
+    "contact@olivierchauvel-avocat.fr"
+   ],
+   "tel": [
+    "0299660819"
+   ]
   },
   {
    "prenom": "Agnès",
@@ -204,7 +229,7 @@
   {
    "prenom": "Nolwenn",
    "nom": "DAVID",
-   "adresse": "74 F rue de Paris, 35000 RENNES",
+   "adresse": "74 F rue de Paris 35000 RENNES",
    "mail": [
     "ndavid.avocate@gmail.com"
    ],
@@ -215,24 +240,26 @@
   {
    "prenom": "Anne",
    "nom": "DENIS",
-   "adresse": "12 Quai Duguay Trouin 3e étage 35101 RENNES CEDEX 3",
+   "adresse": "12 quai Duguay Trouin 35000 RENNES",
    "mail": [
-    "annedenis.avocat@gmail.com"
+    "anne.denis@avocat.fr"
    ],
    "tel": [
     "0223440485"
-   ]
+   ],
+   "cabinet": "ANNE DENIS"
   },
   {
    "prenom": "Kévin",
    "nom": "DESCAMPS-GUEZOU",
-   "adresse": "53 Rue Jules Vallès, 35000 RENNES",
+   "adresse": "Immeuble le West Side - 53 rue Jules Vallès CS 64329 35043 RENNES CEDEX",
    "mail": [
-    "contact@kdg-avocat.fr"
+    "kdg@aresavocats.com"
    ],
    "tel": [
     "0680958694"
-   ]
+   ],
+   "cabinet": "ARES"
   },
   {
    "prenom": "Marie",
@@ -242,8 +269,9 @@
     "dore.freor.avocat@gmail.com"
    ],
    "tel": [
-    "0223505543"
-   ]
+    "0620093726"
+   ],
+   "cabinet": "TRANSMISSIO"
   },
   {
    "prenom": "Thomas",
@@ -259,25 +287,29 @@
   {
    "prenom": "Carole",
    "nom": "DUCART-MEVEL",
-   "adresse": "",
-   "mail": [],
-   "tel": []
+   "adresse": "5 mail François Mitterrand - CAP MAIL 35000 RENNES",
+   "mail": [
+    "cducart@cdmavocat.fr"
+   ],
+   "tel": [
+    "0299792065"
+   ]
   },
   {
    "prenom": "Nathalie",
    "nom": "DUPAS",
-   "adresse": "12 quai Duguay Trouin, 35000 RENNES",
+   "adresse": "12 quai Duguay Trouin 35000 RENNES",
    "mail": [
     "maitre.dupas@orange.fr"
    ],
    "tel": [
-    "0687509692"
+    "0961305223"
    ]
   },
   {
    "prenom": "Alyssa",
    "nom": "DURANTEAU",
-   "adresse": "2 rue de la Paillette, 35000 RENNES",
+   "adresse": "2 rue de la Paillette 35000 RENNES",
    "mail": [
     "duranteau.avocate@hotmail.com"
    ],
@@ -288,16 +320,24 @@
   {
    "prenom": "Marine",
    "nom": "EGON",
-   "adresse": "",
-   "mail": [],
-   "tel": []
+   "adresse": "2 avenue Charles et Raymonde Tillon 35000 RENNES",
+   "mail": [
+    "marine.egon.avocat@gmail.com"
+   ],
+   "tel": [
+    "0223461945"
+   ]
   },
   {
    "prenom": "Constance",
    "nom": "FLECK",
-   "adresse": "",
-   "mail": [],
-   "tel": []
+   "adresse": "4 allée Auguste Louis Jobbé Duval 35000 RENNES",
+   "mail": [
+    "constance.fleck@avocat.fr"
+   ],
+   "tel": [
+    "0299783341"
+   ]
   },
   {
    "prenom": "Marine",
@@ -313,7 +353,7 @@
   {
    "prenom": "Marion",
    "nom": "GAREL",
-   "adresse": "29 rue du Puits MAUGER 35000 RENNES",
+   "adresse": "29 rue du puits Mauger 35000 RENNES",
    "mail": [
     "contact@mariongarel-avocat.fr"
    ],
@@ -324,9 +364,13 @@
   {
    "prenom": "Charles Alexis",
    "nom": "GARO",
-   "adresse": "",
-   "mail": [],
-   "tel": []
+   "adresse": "9 place Général Koënig 35000 RENNES",
+   "mail": [
+    "ca.garo.avocat@gmail.com"
+   ],
+   "tel": [
+    "0672414337"
+   ]
   },
   {
    "prenom": "Gaëlle",
@@ -354,14 +398,18 @@
   {
    "prenom": "Marine",
    "nom": "GRAVIS",
-   "adresse": "",
-   "mail": [],
-   "tel": []
+   "adresse": "8 rue du Sapeur Michel Jouan 35000 RENNES",
+   "mail": [
+    "gravis-cabinet@bbox.fr"
+   ],
+   "tel": [
+    "0662633352"
+   ]
   },
   {
    "prenom": "Benoît",
    "nom": "GUICHOUX",
-   "adresse": "4 avenue Charles et Raymonde Tillon 35040 RENNES",
+   "adresse": "4 avenue Charles Tillon - CS 94038 35040 RENNES CEDEX",
    "mail": [
     "benoit.guichoux@avocat.fr"
    ],
@@ -372,11 +420,13 @@
   {
    "prenom": "Sarah",
    "nom": "GUILBAULT",
-   "adresse": "",
+   "adresse": "20 rue d'Isly - 3ème étage 35000 RENNES",
    "mail": [
     "sarah.guilbault@avocat.fr"
    ],
-   "tel": []
+   "tel": [
+    "0661049405"
+   ]
   },
   {
    "prenom": "Virginie",
@@ -386,7 +436,7 @@
     "guillotelpacheu_avocat@yahoo.fr"
    ],
    "tel": [
-    "0668123997"
+    "0299793885"
    ]
   },
   {
@@ -403,18 +453,18 @@
   {
    "prenom": "Adeline",
    "nom": "HERVE",
-   "adresse": "57 Quai de la Prévalaye 35000 RENNES",
+   "adresse": "57 quai de La Prévalaye 35000 RENNES",
    "mail": [
     "a.herve.avocat@gmail.com"
    ],
    "tel": [
-    "0614444174"
+    "0299057551"
    ]
   },
   {
    "prenom": "Elise",
    "nom": "JACQUEMOUD",
-   "adresse": "8 Place du Colombier, Immeuble Le Sully, 35000 RENNES",
+   "adresse": "8 place du Colombier 35000 RENNES",
    "mail": [
     "contact@ej-avocat.fr"
    ],
@@ -425,43 +475,54 @@
   {
    "prenom": "Anaïs",
    "nom": "JOLLY",
-   "adresse": "9bis rue de Lorient, 35000 RENNES",
+   "adresse": "9 bis rue de Lorient 35000 RENNES",
    "mail": [
-    "avocats@scpjollybourrouillou.com"
+    "anais.jolly@gmail.com"
    ],
    "tel": [
     "0986358730"
-   ]
+   ],
+   "cabinet": "JOLLY BOURROUILLOU"
   },
   {
    "prenom": "Marie",
    "nom": "KERVENNIC",
-   "adresse": "",
-   "mail": [],
-   "tel": []
+   "adresse": "45 boulevard de la Tour d'Auvergne 35000 RENNES",
+   "mail": [
+    "contact@avocat-mk.com"
+   ],
+   "tel": [
+    "0667428998"
+   ]
   },
   {
    "prenom": "Aurélie",
    "nom": "KIBGE",
-   "adresse": "126 Rue de Lorient 35000 RENNES",
+   "adresse": "126 rue de Lorient 35000 RENNES",
    "mail": [
     "contact@kibge-avocat.fr"
    ],
    "tel": [
-    "0662872976"
-   ]
+    "0223251435"
+   ],
+   "cabinet": "BAUDET KIBGE Avocats Associés"
   },
   {
    "prenom": "Julie",
    "nom": "KNOSP",
-   "adresse": "",
-   "mail": [],
-   "tel": []
+   "adresse": "19 A rue de Chatillon 35000 RENNES",
+   "mail": [
+    "j.knosp@telma-avocats.fr"
+   ],
+   "tel": [
+    "0222669470"
+   ],
+   "cabinet": "TELMA AVOCATS"
   },
   {
    "prenom": "Xavier",
    "nom": "LADROIT",
-   "adresse": "31 Rue Maréchal Joffre 35000 RENNES",
+   "adresse": "29 avenue Jean Janvier 35000 RENNES",
    "mail": [
     "xavier.ladroit@avocat.fr"
    ],
@@ -472,9 +533,9 @@
   {
    "prenom": "Naïma",
    "nom": "LAOUFI",
-   "adresse": "",
+   "adresse": "8 rue du Sapeur Michel Jouan 35000 RENNES",
    "mail": [
-    "laoufi.naima-avocat@outlook.fr"
+    "naima.laoufi@avocat.fr"
    ],
    "tel": [
     "0765763470"
@@ -483,9 +544,9 @@
   {
    "prenom": "Charlotte",
    "nom": "LAROUR",
-   "adresse": "2 rue Victor Hugo 35000 RENNES",
+   "adresse": "31 rue du Général Leclerc 35580 GUICHEN",
    "mail": [
-    "charlotte.larour.avocat@gmail.com"
+    "charlotte.larour@avocat.fr"
    ],
    "tel": [
     "0683450448"
@@ -494,18 +555,18 @@
   {
    "prenom": "Aurélie",
    "nom": "LAURENT",
-   "adresse": "2 rue Martenot, 35000 RENNES",
+   "adresse": "2 rue Martenot - BP 70515 35105 RENNES CEDEX 3",
    "mail": [
     "contact@aurelielaurent-avocat.com"
    ],
    "tel": [
-    "0685846655"
+    "0299630501"
    ]
   },
   {
    "prenom": "Sophie",
    "nom": "LAURENT",
-   "adresse": "15 rue du Puits Mauger, 35000 RENNES",
+   "adresse": "15 rue du Puits Mauger 35000 RENNES",
    "mail": [
     "contact@sophielaurent-avocat.fr"
    ],
@@ -516,7 +577,7 @@
   {
    "prenom": "Aurélie",
    "nom": "LE CORRE",
-   "adresse": "74F rue de Paris, 35000 RENNES",
+   "adresse": "74 F rue de Paris 35000 RENNES",
    "mail": [
     "contact@aurelielecorre-avocat.fr"
    ],
@@ -525,16 +586,9 @@
    ]
   },
   {
-   "prenom": "Manon",
-   "nom": "LE ROUX",
-   "adresse": "",
-   "mail": [],
-   "tel": []
-  },
-  {
    "prenom": "Solenn",
    "nom": "LEMOINE",
-   "adresse": "1 Place Maréchal Juin 35000 RENNES",
+   "adresse": "15 rue du Puits Mauger - 3ème étage 35000 RENNES",
    "mail": [
     "contact@solenn-lemoine-avocat.fr"
    ],
@@ -545,14 +599,19 @@
   {
    "prenom": "Ludivine",
    "nom": "LEROI",
-   "adresse": "",
-   "mail": [],
-   "tel": []
+   "adresse": "8 rue du Sapeur Michel Jouan 35000 RENNES",
+   "mail": [
+    "cabinet@leroi-avocat.fr"
+   ],
+   "tel": [
+    "0299522292"
+   ],
+   "cabinet": "SELARL Ludivine LEROI"
   },
   {
    "prenom": "Lucie",
    "nom": "LESAGE",
-   "adresse": "8 Place du Colombier, Immeuble Le Sully (Canopée), 35000 RENNES",
+   "adresse": "8 place du Colombier - Immeuble le Sully 35000 RENNES",
    "mail": [
     "llesage.avocat@gmail.com"
    ],
@@ -563,7 +622,7 @@
   {
    "prenom": "Catherine",
    "nom": "MALLET",
-   "adresse": "9 square Général Koenig, 35000 RENNES",
+   "adresse": "9 place Général Koenig 35000 RENNES",
    "mail": [
     "catherine_mallet@orange.fr"
    ],
@@ -596,9 +655,13 @@
   {
    "prenom": "Sandrine",
    "nom": "MARTIN",
-   "adresse": "",
-   "mail": [],
-   "tel": []
+   "adresse": "18 rue Maréchal Joffre 35000 RENNES",
+   "mail": [
+    "sandrinemartin-avocat@wanadoo.fr"
+   ],
+   "tel": [
+    "0299797949"
+   ]
   },
   {
    "prenom": "Dimitra",
@@ -621,7 +684,7 @@
    "tel": [
     "0299659612"
    ],
-   "cabinet": "SELARL PLURIEL-AVOCAT"
+   "cabinet": "SELARL PLURIEL-AVOCAT, MAYZAUD GUILLOTIN & ASSOCIES"
   },
   {
    "prenom": "Sarahswati",
@@ -637,9 +700,9 @@
   {
    "prenom": "Cécilia",
    "nom": "MAZOUIN",
-   "adresse": "4 allée Auguste Louis Jobbé Duval 35000 RENNES",
+   "adresse": "8 rue du Sapeur Michel Jouan - 3ème étage 35000 RENNES",
    "mail": [
-    "c.mazouin.avocat@gmail.com"
+    "cecilia.mazouin@avocat.fr"
    ],
    "tel": [
     "0695199281"
@@ -648,16 +711,20 @@
   {
    "prenom": "Stéphanie",
    "nom": "MORIN-BONNIN",
-   "adresse": "",
-   "mail": [],
-   "tel": []
+   "adresse": "50 Rue de Bray - La Monniais 35510 CESSON SEVIGNE",
+   "mail": [
+    "avocat@morin-bonnin.fr"
+   ],
+   "tel": [
+    "0290785243"
+   ]
   },
   {
    "prenom": "Elodie",
    "nom": "MORON",
-   "adresse": "2 rue Martenot, 35000 RENNES",
+   "adresse": "2 avenue Jean Janvier 35000 RENNES",
    "mail": [
-    "e.moron@rennes-avocat.fr"
+    "elodie.moron@avocat.fr"
    ],
    "tel": [
     "0603810179"
@@ -666,14 +733,18 @@
   {
    "prenom": "Franziska",
    "nom": "MOSIMANN",
-   "adresse": "",
-   "mail": [],
-   "tel": []
+   "adresse": "20 rue d'Isly - Centre d'Affaires Les 3 Soleils 35000 RENNES",
+   "mail": [
+    "avocat@mosimann.fr"
+   ],
+   "tel": [
+    "0299679406"
+   ]
   },
   {
    "prenom": "Iris",
    "nom": "MOTEL",
-   "adresse": "13 rue de Châtillon, BP 60435, 35004 RENNES CEDEX",
+   "adresse": "13 rue de Châtillon - BP 60435 35004 RENNES CEDEX",
    "mail": [
     "irismotelavocat@gmail.com"
    ],
@@ -684,9 +755,13 @@
   {
    "prenom": "Samuel",
    "nom": "MOULIN",
-   "adresse": "",
-   "mail": [],
-   "tel": []
+   "adresse": "6 quai Richemont 35000 RENNES",
+   "mail": [
+    "samuel.moulin.avocat.rennes@gmail.com"
+   ],
+   "tel": [
+    "0662073162"
+   ]
   },
   {
    "prenom": "Anne-Louise",
@@ -702,25 +777,29 @@
   {
    "prenom": "Amélie",
    "nom": "PAILLE NICOLAS",
-   "adresse": "",
-   "mail": [],
-   "tel": []
+   "adresse": "1 place Maréchal Juin 35000 RENNES",
+   "mail": [
+    "ameliepaille.avocat@yahoo.fr"
+   ],
+   "tel": [
+    "0614273265"
+   ]
   },
   {
    "prenom": "Marie-Aude",
    "nom": "PAULET-PRIGENT",
-   "adresse": "9 Square du Général Koenig, 35000 RENNES",
+   "adresse": "9 place du Général Koenig 35000 RENNES",
    "mail": [
     "mapp.avocat@gmail.com"
    ],
    "tel": [
-    "0664255906"
+    "0789533550"
    ]
   },
   {
    "prenom": "Marie-Pierre",
    "nom": "PELOIL",
-   "adresse": "2 rue de Rohan 35000 RENNES",
+   "adresse": "2 Rue de Rohan 35000 RENNES",
    "mail": [
     "peloil-avocate@outlook.fr"
    ],
@@ -731,9 +810,9 @@
   {
    "prenom": "Auréa",
    "nom": "PIEDERRIERE",
-   "adresse": "4 Avenue Charles et Raymonde Tillon 35000 RENNES",
+   "adresse": "4 avenue Charles Tillon - CS 94038 35040 RENNES CEDEX",
    "mail": [
-    "maitre.piederriere@gmail.com"
+    "aurea.piederriere@avocat.fr"
    ],
    "tel": [
     "0299593249"
@@ -742,7 +821,7 @@
   {
    "prenom": "Dominique",
    "nom": "PIRIOU-FORGEOUX",
-   "adresse": "7 rue Jean Macé, 35700 RENNES",
+   "adresse": "7 rue Jean Macé 35000 RENNES",
    "mail": [
     "piriou.forgeoux.avocat@orange.fr"
    ],
@@ -753,13 +832,14 @@
   {
    "prenom": "Katell",
    "nom": "PLANCON",
-   "adresse": "126 Rue de Lorient, 35000 RENNES",
+   "adresse": "126 rue de Lorient 35000 RENNES",
    "mail": [
     "kbp@plancon-avocat.fr"
    ],
    "tel": [
     "0223251435"
-   ]
+   ],
+   "cabinet": "KBP AVOCAT"
   },
   {
    "prenom": "Elodie",
@@ -775,25 +855,30 @@
   {
    "prenom": "Anne-Marie",
    "nom": "QUESNEL",
-   "adresse": "",
-   "mail": [],
-   "tel": []
+   "adresse": "1A allée Ermengarde d'Anjou 35000 RENNES",
+   "mail": [
+    "am.quesnel@lexouestrennes.com"
+   ],
+   "tel": [
+    "0299792322"
+   ],
+   "cabinet": "QUESNEL DEMAY LE GALL-GUINEAU OUAIRY-JALLAIS BOUCHER BEUCHER-FLAMENT"
   },
   {
    "prenom": "Pierre",
    "nom": "RODIUS",
-   "adresse": "2 rue Jules Simon 35000 RENNES",
+   "adresse": "2, rue Jules Simon 35000 RENNES",
    "mail": [
     "pierre.rodius@rodius-avocat.fr"
    ],
    "tel": [
-    "0616180519"
+    "0299782939"
    ]
   },
   {
    "prenom": "Gauthier",
    "nom": "ROLANDIN",
-   "adresse": "5 allée Ermengarde d'Anjou, ZA Atalante Champeaux, CS 40824 35108 RENNES CEDEX 3",
+   "adresse": "5 allée Ermengarde d'Anjou - ZA Atalante Champeaux CS 40824 35108 RENNES CEDEX 3",
    "mail": [
     "contact@rolandin-avocat.fr"
    ],
@@ -804,7 +889,7 @@
   {
    "prenom": "Véronique",
    "nom": "SAUTEJEAU-DENIS",
-   "adresse": "1 place du Maréchal Juin 35000 RENNES",
+   "adresse": "1 place Maréchal Juin 35000 RENNES",
    "mail": [
     "sautejeaudenis.avocat@hotmail.com"
    ],
@@ -826,7 +911,7 @@
   {
    "prenom": "Thomas",
    "nom": "SERRAND",
-   "adresse": "8 rue du Sapeur Michel Jouan 35000 RENNES",
+   "adresse": "8 rue du sapeur Michel Jouan 35000 RENNES",
    "mail": [
     "serrand@cabinet-acdc.fr"
    ],
@@ -837,16 +922,18 @@
   {
    "prenom": "Inès",
    "nom": "TARDY-JOUBERT",
-   "adresse": "",
+   "adresse": "25 bis Bd de la Liberté 35000 RENNES",
    "mail": [
-    "i.tardy-joubert@rennes-avocat.fr"
+    "i.tardy-joubert@itj-avocat.fr"
    ],
-   "tel": []
+   "tel": [
+    "0230961464"
+   ]
   },
   {
    "prenom": "Alexandra",
    "nom": "VINCENT",
-   "adresse": "2 rue de Rohan, 35000 RENNES",
+   "adresse": "3A rue du 10ème régiment d'artillerie - 9ème étage 35000 RENNES",
    "mail": [
     "cabinet@vincentavocat.com"
    ],
