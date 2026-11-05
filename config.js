@@ -5,7 +5,7 @@
    puis augmenter "version" (cela force la mise à jour sur les téléphones).
    ===================================================================== */
 window.GDM_CONFIG = {
-  version: "5.3.1",
+  version: "5.3.2",
   edition: "Édition novembre 2026 (v5)",
   urlApplication: "https://gdm-rennes-app.pages.dev",
 
@@ -60,7 +60,6 @@ window.GDM_CONFIG = {
           montants: { jour: 30, mercredi: 155 } }   /* HT, circulaire du Bâtonnier du 02/01/2025 */,
 
   contacts: [
-    { libelle: "Groupe de défense des mineurs",       email: "gdm.rennes@gmail.com" },
-    { libelle: "Vice-présidence du GDM",              email: "avocats@cabinet-acdc.fr" }
+    { libelle: "Groupe de défense des mineurs",       email: "gdm.rennes@gmail.com" }
   ]
 };
