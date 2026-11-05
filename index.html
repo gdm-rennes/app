@@ -249,12 +249,12 @@ function chargerAgenda(){
 }
 vues.fiches=function(arg){
   if(arg&&C.formulaires[arg]&&C.formulaires[arg].datee) return panneauFiche(arg);
-  return '<div class="wrap"><h1>Fiches d’analyse</h1><p>Deux fiches sont propres au Groupe de défense des mineurs. Elles ne servent <b>que</b> pour les cas relevant du GDM.</p><div class="choix">'+
+  return '<div class="wrap"><h1>Fiches d’analyse</h1><div class="choix">'+
   '<button data-go="#/fiches/mercredi"><span><b>Permanence du mercredi après-midi</b><br><span class="petit">Consultations gratuites mineurs, Cité judiciaire</span></span><span aria-hidden="true">›</span></button>'+
   '<button data-go="#/fiches/telephone"><span><b>Permanence téléphonique</b><br><span class="petit">Une fiche par jour de sollicitations</span></span><span aria-hidden="true">›</span></button></div>'+
-  '<section class="card" style="margin-top:18px"><h2>Autres cas</h2><p>D-Code, <b>factures des permanences CDAD</b> autres que scolaires et incidents sur un lieu de permanence se déclarent dans l’<b>application générale d’accès au droit</b> du barreau.</p>'+
+  '<section class="card" style="margin-top:18px"><h2>Facturation</h2><p>Permanences du GDM semaine et week-end (CLAJ) et interventions en milieu scolaire (CDAD) : voir l’onglet <a href="#/facturer"><b>Facturer</b></a>.</p></section>'+
+  '<section class="card"><h2>Autres cas</h2><p>Les autres permanences non spécifiques au GDM se déclarent dans l’<b>application générale d’accès au droit</b> du barreau.</p>'+
   '<a class="btn block" href="'+esc(C.appAccesAuDroit)+'" target="_blank" rel="noopener noreferrer">Ouvrir l’application accès au droit</a></section>'+
-  '<section class="card"><h2>Facturation</h2><p>Permanences du GDM (CLAJ) et interventions en milieu scolaire (CDAD) : voir l’onglet <a href="#/facturer"><b>Facturer</b></a>.</p></section>'+
   '<div class="note"><b>Toutes les permanences donnent lieu à une fiche d’analyse.</b> Aucun nom, aucune date de naissance, aucun établissement : uniquement des cases à cocher.</div></div>';
 };
 function panneauFiche(cle){
@@ -369,7 +369,7 @@ vues.annuaire=function(){
   var site=C.siteMembres?'<a class="btn sec block" href="'+esc(C.siteMembres)+'" target="_blank" rel="noopener noreferrer">Liste complète sur le site du GDM ↗</a>':'';
   var ordre=C.siteOrdre?'<a class="btn sec block" style="margin-top:8px" href="'+esc(C.siteOrdre)+'" target="_blank" rel="noopener noreferrer">Site de l’Ordre des avocats de Rennes ↗</a>':'';
   return '<div class="wrap"><h1 style="color:var(--teal-f)">Annuaire du groupe</h1>'+
-  '<p>Les membres du GDM, d’après les coordonnées publiques du site du GDM et de l’annuaire de l’Ordre. Touchez un numéro pour appeler, une adresse pour écrire.</p>'+
+  '<p>Les membres du GDM, d’après l’annuaire public de l’Ordre des avocats de Rennes. Touchez un numéro pour appeler, une adresse pour écrire.</p>'+
   '<label for="aq">Rechercher</label><input id="aq" type="search" placeholder="Nom, prénom ou ville" autocomplete="off">'+
   '<div id="ann" style="margin:12px 0"><p class="petit">Chargement…</p></div>'+
   '<section class="card"><h2>Autres annuaires</h2>'+site+ordre+'</section>'+
@@ -385,7 +385,7 @@ function chargerAnnuaire(){
       var sans=!(m.tel&&m.tel.length)&&!(m.mail&&m.mail.length);
       var tels=(m.tel||[]).map(function(t){return '<a class="btn" href="tel:+33'+esc(t.slice(1))+'">'+esc(fmtTel(t))+'</a>'}).join("");
       var mails=(m.mail||[]).slice(0,1).map(function(e){return '<a class="btn sec" href="mailto:'+esc(e)+'">Écrire</a>'}).join("");
-      return '<div class="annu"><div class="nm">Me '+esc(m.prenom)+' '+esc(m.nom)+'</div><div class="ad">'+(m.cabinet?esc(m.cabinet)+' · ':'')+esc(m.adresse||"")+'</div><div class="ac">'+(sans?'<a class="btn sec" href="'+esc(C.siteOrdre||"#")+'" target="_blank" rel="noopener noreferrer">Coordonnées : annuaire de l’Ordre ↗</a>':tels+mails)+'</div></div>'}).join(""):'<p>Aucun résultat.</p>')+
+      return '<div class="annu"><div class="nm">Me '+esc(m.prenom)+' '+esc(m.nom)+'</div><div class="ad">'+(m.cabinet?esc(m.cabinet)+' · ':'')+esc(m.adresse||"")+'</div><div class="ac">'+(sans?'<span class="petit">Coordonnées non communiquées</span>':tels+mails)+'</div></div>'}).join(""):'<p>Aucun résultat.</p>')+
       '<p class="petit">'+l.length+' membre'+(l.length>1?'s':'')+' affiché'+(l.length>1?'s':'')+' · liste du '+esc(new Date(ANN.maj).toLocaleDateString("fr-FR"))+'</p>';
   }
   function init(){aff();var q=document.getElementById("aq");if(q)q.addEventListener("input",aff)}
